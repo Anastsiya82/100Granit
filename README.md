@@ -1,7 +1,7 @@
 ---
-title: 100granit-by
+title: myname82-100granit
 emoji: 🐳
-colorFrom: purple
+colorFrom: green
 colorTo: green
 sdk: static
 pinned: false

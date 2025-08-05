@@ -81,6 +81,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Наши склады</h2>
             
+            <!-- Warehouse Slider Navigation -->
             <div class="flex justify-center gap-4 mb-8">
                 <button onclick="showWarehouse('minsk')" id="minskBtn" class="warehouse-btn active-warehouse bg-blue-800 text-white font-medium py-3 px-8 rounded-lg transition duration-300">
                     Минск
@@ -90,67 +91,40 @@
                 </button>
             </div>
             
-            <div id="minskInfo" class="warehouse-info fade-in max-w-4xl mx-auto bg-gray-50 rounded-xl p-6 shadow-sm">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="space-y-6">
-                        <h3 class="text-xl font-semibold mb-2">Склад в Минске</h3>
-                        <div>
-                            <h4 class="font-medium text-gray-700"><i class="fas fa-map-marker-alt mr-2 text-blue-800"></i>Адрес:</h4>
-                            <p>ООО «ГранитДеМаш»</p>
-                              г. Минск, Пр. Партизанский, 168/18</p>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-gray-700"><i class="fas fa-phone-alt mr-2 text-blue-800"></i>Телефон:</h4>
-                            <a href="tel:+375445799579" class="hover:text-blue-800">+375 (44) 579-95-79</a>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-gray-700"><i class="fas fa-user-tie mr-2 text-blue-800"></i>Ответственный:</h4>
-                            <p>Евгений</p>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-gray-700"><i class="fas fa-clock mr-2 text-blue-800"></i>Часы работы:</h4>
-                            <p>Пн-Пт: 8:00 - 18:00<br>Сб: 9:00 - 15:00<br>Вс: выходной</p>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-gray-700"><i class="fas fa-file-invoice-dollar mr-2 text-blue-800"></i>Цены:</h4>
-                            <a href="#prices" class="text-blue-700 hover:underline">Смотреть цены реализации</a>
-                        </div>
-                    </div>
-                    <div class="rounded-lg overflow-hidden h-full">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.692463223551!2d27.56112431585984!3d53.90225168009959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcf0e8f5d7b0f%3A0x6b7e4e5b3a5f3b1f!2z0JPQu9Cw0LLQvdCw0Y8g0JPQsNC90LjQvNCw0YLQuNGP!5e0!3m2!1sru!2sby!4v1620000000000!5m2!1sru!2sby" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
+            <!-- Warehouse Slides -->
+            <div id="minskInfo" class="warehouse-info fade-in max-w-2xl mx-auto bg-gray-50 rounded-xl p-4 shadow-sm">
+                <h3 class="text-lg font-semibold mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-2 text-blue-800"></i>Склад в Минске</h3>
+                <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-gray-800 mb-2">
+                    <div><span class="font-medium">Адрес:</span> ООО «ГранитДеМаш», Пр. Партизанский, 168/18</div>
+                    <div><span class="font-medium">Тел.:</span> <a href="tel:+375445799579" class="text-blue-700 hover:underline">+375 (44) 579-95-79</a></div>
+                    <div><span class="font-medium">Ответственный:</span> Евгений</div>
+                    <div><span class="font-medium">Время:</span> Пн-Пт 8:00-18:00, Сб 9:00-15:00, Вс выходной</div>
+                </div>
+                <div class="flex flex-wrap gap-4 mt-2">
+                    <a href="#prices" class="inline-flex items-center text-blue-700 hover:text-blue-800 font-medium">
+                        <i class="fas fa-file-invoice-dollar mr-2"></i>Цены реализации
+                    </a>
+                    <button onclick="openMapModal('minsk')" class="inline-flex items-center text-blue-700 hover:text-blue-800 font-medium">
+                        <i class="fas fa-map mr-2"></i>Показать на карте
+                    </button>
                 </div>
             </div>
             
-            <div id="grodnoInfo" class="warehouse-info hidden max-w-4xl mx-auto bg-gray-50 rounded-xl p-6 shadow-sm">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="space-y-6">
-                        <h3 class="text-xl font-semibold mb-2">Склад в Гродно</h3>
-                        <div>
-                            <h4 class="font-medium text-gray-700"><i class="fas fa-map-marker-alt mr-2 text-blue-800"></i>Адрес:</h4>
-                            <p>ООО «ПрофиЦвет»  </p>
-                              г. Гродно ул. Аульская, 17 </p>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-gray-700"><i class="fas fa-phone-alt mr-2 text-blue-800"></i>Телефон:</h4>
-                            <a href="tel:+375291609358" class="hover:text-blue-800">+375 (29) 160-93-58</a>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-gray-700"><i class="fas fa-user-tie mr-2 text-blue-800"></i>Ответственный:</h4>
-                            <p>Андрей</p>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-gray-700"><i class="fas fa-clock mr-2 text-blue-800"></i>Часы работы:</h4>
-                            <p>Пн-Пт: 9:00 - 17:00<br>Сб: 10:00 - 14:00<br>Вс: выходной</p>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-gray-700"><i class="fas fa-file-invoice-dollar mr-2 text-blue-800"></i>Цены:</h4>
-                            <a href="#prices" class="text-blue-700 hover:underline">Смотреть цены реализации</a>
-                        </div>
-                    </div>
-                    <div class="rounded-lg overflow-hidden h-full">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.692463223551!2d23.82572431585984!3d53.67895168009959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcf0e8f5d7b0f%3A0x6b7e4e5b3a5f3b1f!2z0JPQu9Cw0LLQvdCw0Y8g0JPQsNC90LjQvNCw0YLQuNGP!5e0!3m2!1sru!2sby!4v1620000000000!5m2!1sru!2sby" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
+            <div id="grodnoInfo" class="warehouse-info hidden max-w-2xl mx-auto bg-gray-50 rounded-xl p-4 shadow-sm">
+                <h3 class="text-lg font-semibold mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-2 text-blue-800"></i>Склад в Гродно</h3>
+                <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-gray-800 mb-2">
+                    <div><span class="font-medium">Адрес:</span> ООО «ПрофиЦвет», ул. Аульская, 17</div>
+                    <div><span class="font-medium">Тел.:</span> <a href="tel:+375291609358" class="text-blue-700 hover:underline">+375 (29) 160-93-58</a></div>
+                    <div><span class="font-medium">Ответственный:</span> Андрей</div>
+                    <div><span class="font-medium">Время:</span> Пн-Пт 9:00-17:00, Сб 10:00-14:00, Вс выходной</div>
+                </div>
+                <div class="flex flex-wrap gap-4 mt-2">
+                    <a href="#prices" class="inline-flex items-center text-blue-700 hover:text-blue-800 font-medium">
+                        <i class="fas fa-file-invoice-dollar mr-2"></i>Цены реализации
+                    </a>
+                    <button onclick="openMapModal('grodno')" class="inline-flex items-center text-blue-700 hover:text-blue-800 font-medium">
+                        <i class="fas fa-map mr-2"></i>Показать на карте
+                    </button>
                 </div>
             </div>
         </div>
@@ -559,9 +533,7 @@
                                     
                                     <div class="flex items-center">
                                         <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700"> Камень отличается высокой прочностью, морозостойкостью и эстетической привлекательностью, что делает его востребованным для облицовки фасадов и интерьеров, производства памятников и скульптур,
-
-сздания брусчатки и архитектурных элементов</span>
+                                        <span class="text-gray-700">Камень отличается высокой прочностью, морозостойкостью и эстетической привлекательностью, что делает его востребованным для облицовки фасадов и интерьеров, производства памятников и скульптур, создания брусчатки и архитектурных элементов</span>
                                     </div>
                                     
                                     </div>
@@ -654,6 +626,7 @@
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </div>
@@ -1016,33 +989,7 @@
             document.getElementById(`${tabName}Tab`).classList.remove('hidden');
         }
         
-        // Warehouse toggle function
-        function showWarehouse(warehouse) {
-            const minskBtn = document.getElementById('minskBtn');
-            const grodnoBtn = document.getElementById('grodnoBtn');
-            const minskInfo = document.getElementById('minskInfo');
-            const grodnoInfo = document.getElementById('grodnoInfo');
-            
-            if (warehouse === 'minsk') {
-                minskBtn.classList.remove('bg-gray-200', 'text-gray-800');
-                minskBtn.classList.add('bg-blue-800', 'text-white', 'active-warehouse');
-                grodnoBtn.classList.remove('bg-blue-800', 'text-white', 'active-warehouse');
-                grodnoBtn.classList.add('bg-gray-200', 'text-gray-800');
-                
-                minskInfo.classList.remove('hidden');
-                minskInfo.classList.add('fade-in');
-                grodnoInfo.classList.add('hidden');
-            } else {
-                grodnoBtn.classList.remove('bg-gray-200', 'text-gray-800');
-                grodnoBtn.classList.add('bg-blue-800', 'text-white', 'active-warehouse');
-                minskBtn.classList.remove('bg-blue-800', 'text-white', 'active-warehouse');
-                minskBtn.classList.add('bg-gray-200', 'text-gray-800');
-                
-                grodnoInfo.classList.remove('hidden');
-                grodnoInfo.classList.add('fade-in');
-                minskInfo.classList.add('hidden');
-            }
-        }
+
         
         // Mining slider function
         function showMiningSlide(index) {
@@ -1096,6 +1043,93 @@
                 }
             });
         });
+        
+        // Warehouse toggle function
+        function showWarehouse(warehouse) {
+            const minskBtn = document.getElementById('minskBtn');
+            const grodnoBtn = document.getElementById('grodnoBtn');
+            const minskInfo = document.getElementById('minskInfo');
+            const grodnoInfo = document.getElementById('grodnoInfo');
+            
+            if (warehouse === 'minsk') {
+                minskBtn.classList.remove('bg-gray-200', 'text-gray-800');
+                minskBtn.classList.add('bg-blue-800', 'text-white', 'active-warehouse');
+                grodnoBtn.classList.remove('bg-blue-800', 'text-white', 'active-warehouse');
+                grodnoBtn.classList.add('bg-gray-200', 'text-gray-800');
+                
+                minskInfo.classList.remove('hidden');
+                minskInfo.classList.add('fade-in');
+                grodnoInfo.classList.add('hidden');
+            } else {
+                grodnoBtn.classList.remove('bg-gray-200', 'text-gray-800');
+                grodnoBtn.classList.add('bg-blue-800', 'text-white', 'active-warehouse');
+                minskBtn.classList.remove('bg-blue-800', 'text-white', 'active-warehouse');
+                minskBtn.classList.add('bg-gray-200', 'text-gray-800');
+                
+                grodnoInfo.classList.remove('hidden');
+                grodnoInfo.classList.add('fade-in');
+                minskInfo.classList.add('hidden');
+            }
+        }
+        
+        // Map modal functions
+        function openMapModal(warehouse) {
+            const modal = document.getElementById('mapModal');
+            const modalTitle = document.getElementById('mapModalTitle');
+            const modalMap = document.getElementById('mapModalMap');
+            
+            if (warehouse === 'minsk') {
+                modalTitle.textContent = 'Склад в Минске';
+                modalMap.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.692463223551!2d27.56112431585984!3d53.90225168009959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcf0e8f5d7b0f%3A0x6b7e4e5b3a5f3b1f!2z0JPQu9Cw0LLQvdCw0Y8g0JPQsNC90LjQvNCw0YLQuNGP!5e0!3m2!1sru!2sby!4v1620000000000!5m2!1sru!2sby';
+            } else {
+                modalTitle.textContent = 'Склад в Гродно';
+                modalMap.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.692463223551!2d23.82572431585984!3d53.67895168009959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcf0e8f5d7b0f%3A0x6b7e4e5b3a5f3b1f!2z0JPQu9Cw0LLQvdCw0Y8g0JPQsNC90LjQvNCw0YLQuNGP!5e0!3m2!1sru!2sby!4v1620000000000!5m2!1sru!2sby';
+            }
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMapModal() {
+            const modal = document.getElementById('mapModal');
+            const modalMap = document.getElementById('mapModalMap');
+            
+            modal.classList.add('hidden');
+            modalMap.src = '';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('mapModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeMapModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMapModal();
+            }
+        });
     </script>
-<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=MYname82/https-huggingface-co-spaces-myname82-granit-tree-main" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p><p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=MYname82/100granit-by" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+
+    <!-- Map Modal -->
+    <div id="mapModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+            <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                <h3 id="mapModalTitle" class="text-xl font-semibold text-gray-900"></h3>
+                <button onclick="closeMapModal()" class="text-gray-400 hover:text-gray-600 transition-colors">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="rounded-lg overflow-hidden h-96">
+                    <iframe id="mapModalMap" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=MYname82/https-huggingface-co-spaces-myname82-granit-tree-main" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p><p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=MYname82/100granit-by" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
 </html>
