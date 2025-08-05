@@ -6,166 +6,284 @@
     <title>100Granit.by - Поставщик гранита в Беларусь</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        granite: {
+                            50: '#f8faf9',
+                            100: '#f1f5f3',
+                            200: '#dfe7e3',
+                            300: '#c8d5ce',
+                            400: '#a9b9ac',
+                            500: '#8a9c8b',
+                            600: '#6d7f6d',
+                            700: '#566456',
+                            800: '#424a42',
+                            900: '#353d35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-                .active-warehouse {
-            border-color: #1e40af;
-            box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.2);
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap');
+        
+        section[id] {
+            transition: transform 0.2s ease;
         }
-        .active-mining {
-            border-color: #1e40af;
-            box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.2);
-        }
-        .nav-link:hover {
-            color: #1e40af;
-        }
-        .cta-button:hover {
-            background-color: #1e3a8a;
+        
+        section[id]:hover {
             transform: translateY(-2px);
         }
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Arial", sans-serif;
+            background-color: #f1f5f3;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
         }
-        .step-card:hover {
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/images/drugoreckoe.jpg') center/cover no-repeat;
+            filter: brightness(1.1);
+        }
+        
+        .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .location-card {
+            transition: all 0.3s ease;
+        }
+        
+        .location-card:hover {
+            border-left: 4px solid #8a9c8b;
+        }
+        
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #8a9c8b;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+        
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-content {
+            max-height: 500px;
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mining-bg {
+            background: rgba(0, 0, 0, 0.6);
         }
     </style>
 </head>
-<body class="font-sans text-gray-900 bg-gray-50">
+<body class="text-gray-800">
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                <div class="mb-2 md:mb-0">
-                    <h1 class="text-2xl font-bold">100Granit.by</h1>
-                    <p class="text-sm text-gray-600">Центр комплектации гранитных мастерских и бригад по благоустройству</p>
-                </div>
-                <nav class="flex flex-wrap gap-4 md:gap-6">
-                    <a href="#about" class="nav-link text-base hover:text-blue-800 transition">О компании</a>
-                    <a href="#mining" class="nav-link text-base hover:text-blue-800 transition">Добыча</a>
-                    <a href="#production" class="nav-link text-base hover:text-blue-800 transition">Производство</a>
-                    <a href="#warehouses" class="nav-link text-base hover:text-blue-800 transition">Склады</a>
-                    <a href="#contacts" class="nav-link text-base hover:text-blue-800 transition">Контакты</a>
-                    <a href="#faq" class="nav-link text-base hover:text-blue-800 transition">Вопрос/Ответ</a>
-                </nav>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex flex-col items-center">
+            <div class="mb-4">
+                <h1 class="text-2xl font-bold text-gray-900">100Granit.by</h1>
             </div>
+            
+            <nav class="w-full md:w-auto">
+                <ul class="flex flex-wrap justify-center space-x-1 md:space-x-4">
+                    <li><a href="#about" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">О компании</a></li>
+                    <li><a href="#mining" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">Добыча</a></li>
+                    <li><a href="#production" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">Производство</a></li>
+                    <li><a href="#warehouses" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">Склады</a></li>
+                    <li><a href="#contacts" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">Контакты</a></li>
+                    <li><a href="#faq" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">Вопрос/Ответ</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-gray-100 to-gray-200 py-16 md:py-24">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ваш надежный поставщик гранита по всей Беларуси</h2>
-                <p class="text-lg md:text-xl text-gray-700 mb-8">Высокое качество, справедливая цена, оперативная поставка  и готовность к долгосрочному сотрудничеству</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#contacts" class="cta-button bg-blue-800 hover:bg-blue-900 text-white font-medium py-3 px-6 rounded-lg transition duration-300 shadow-md">
-                        <i class="fas fa-phone-alt mr-2"></i>Связаться с нами
-                    </a>
-                    <a href="#warehouses" class="cta-button bg-white hover:bg-gray-100 text-blue-800 font-medium py-3 px-6 rounded-lg transition duration-300 shadow-md border border-gray-200">
-                        <i class="fas fa-map-marker-alt mr-2"></i>Наши склады
-                    </a>
-                </div>
-
-
-            </div>
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Ваш надежный поставщик гранита по всей Беларуси</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Высокое качество, справедливая цена, оперативная поставка и готовность к долгосрочному сотрудничеству</p>
+            <a href="#contacts" class="bg-granite-600 hover:bg-granite-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">
+                Связаться с нами
+            </a>
         </div>
     </section>
 
     <!-- Warehouses Section -->
     <section id="warehouses" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Наши склады</h2>
-            
-            <!-- Warehouse Slider Navigation -->
-            <div class="flex justify-center gap-4 mb-8">
-                <button onclick="showWarehouse('minsk')" id="minskBtn" class="warehouse-btn active-warehouse bg-blue-800 text-white font-medium py-3 px-8 rounded-lg transition duration-300">
-                    Минск
-                </button>
-                <button onclick="showWarehouse('grodno')" id="grodnoBtn" class="warehouse-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-8 rounded-lg transition duration-300">
-                    Гродно
-                </button>
-            </div>
-            
-            <!-- Warehouse Slides -->
-            <div id="minskInfo" class="warehouse-info fade-in max-w-2xl mx-auto bg-gray-50 rounded-xl p-4 shadow-sm">
-                <h3 class="text-lg font-semibold mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-2 text-blue-800"></i>Склад в Минске</h3>
-                <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-gray-800 mb-2">
-                    <div><span class="font-medium">Адрес:</span> ООО «ГранитДеМаш», Пр. Партизанский, 168/18</div>
-                    <div><span class="font-medium">Тел.:</span> <a href="tel:+375445799579" class="text-blue-700 hover:underline">+375 (44) 579-95-79</a></div>
-                    <div><span class="font-medium">Ответственный:</span> Евгений</div>
-                    <div><span class="font-medium">Время:</span> Пн-Пт 8:00-18:00, Сб 9:00-15:00, Вс выходной</div>
-                </div>
-                <div class="flex flex-wrap gap-4 mt-2">
-                    <a href="#prices" class="inline-flex items-center text-blue-700 hover:text-blue-800 font-medium">
-                        <i class="fas fa-file-invoice-dollar mr-2"></i>Цены реализации
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Наши склады</h2>
+                <div class="w-20 h-1 bg-granite-600 mx-auto mb-6"></div>
+                
+                <!-- Warehouse Tabs -->
+                <div class="flex justify-center space-x-4 mb-8">
+                    <a href="#" class="warehouse-tab px-6 py-3 bg-granite-600 text-white rounded-lg font-medium transition duration-300 hover:bg-granite-700 active" data-warehouse="minsk">
+                        Минск
                     </a>
-                    <button onclick="openMapModal('minsk')" class="inline-flex items-center text-blue-700 hover:text-blue-800 font-medium">
-                        <i class="fas fa-map mr-2"></i>Показать на карте
-                    </button>
+                    <a href="#" class="warehouse-tab px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-medium transition duration-300 hover:bg-gray-300" data-warehouse="grodno">
+                        Гродно
+                    </a>
                 </div>
+                
             </div>
             
-            <div id="grodnoInfo" class="warehouse-info hidden max-w-2xl mx-auto bg-gray-50 rounded-xl p-4 shadow-sm">
-                <h3 class="text-lg font-semibold mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-2 text-blue-800"></i>Склад в Гродно</h3>
-                <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-gray-800 mb-2">
-                    <div><span class="font-medium">Адрес:</span> ООО «ПрофиЦвет», ул. Аульская, 17</div>
-                    <div><span class="font-medium">Тел.:</span> <a href="tel:+375291609358" class="text-blue-700 hover:underline">+375 (29) 160-93-58</a></div>
-                    <div><span class="font-medium">Ответственный:</span> Андрей</div>
-                    <div><span class="font-medium">Время:</span> Пн-Пт 9:00-17:00, Сб 10:00-14:00, Вс выходной</div>
+            <!-- Warehouse Content -->
+            <div class="max-w-6xl mx-auto">
+                <!-- Minsk Warehouse -->
+                <div id="warehouse-minsk" class="warehouse-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.570210684896!2d27.46280831586425!3d53.84433597985431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e08224e5b8b737%3A0x7e0f7b0e5b8b7b0!2z0J7QutCw0Y8g0L_QvtC20LjRgtC-0LHQsA!5e0!3m2!1sru!2sby!4v1695000000000!5m2!1sru!2sby" 
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div>
+                        <div class="location-card border-l-4 border-granite-500 bg-gray-50 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Склад в Минске</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="font-semibold text-gray-700">Адрес:</p>
+                                    <p class="text-gray-600">ООО «ГранитДеМаш»<br>г. Минск, Пр. Партизанский, 168/18</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-700">Ответственный:</p>
+                                    <p class="text-gray-600">Евгений</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-700">Телефон:</p>
+                                    <p class="text-gray-600">+375 44 579 95 79</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-700">Часы работы:</p>
+                                    <p class="text-gray-600">Пн-Пт: 8:00 - 18:00<br>Сб: 9:00 - 15:00<br>Вс: выходной</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-700">Наши цены:</p>
+                                    <p class="text-gray-600">
+                                        <a href="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/price/%D0%9C%D0%B8%D0%BD%D1%81%D0%BA%20%D0%9F1.pdf" target="_blank" class="text-granite-600 hover:text-granite-800 underline">
+                                            Цена реализации
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-wrap gap-4 mt-2">
-                    <a href="#prices" class="inline-flex items-center text-blue-700 hover:text-blue-800 font-medium">
-                        <i class="fas fa-file-invoice-dollar mr-2"></i>Цены реализации
-                    </a>
-                    <button onclick="openMapModal('grodno')" class="inline-flex items-center text-blue-700 hover:text-blue-800 font-medium">
-                        <i class="fas fa-map mr-2"></i>Показать на карте
-                    </button>
+                
+                <!-- Grodno Warehouse -->
+                <div id="warehouse-grodno" class="warehouse-content grid grid-cols-1 md:grid-cols-2 gap-8 hidden">
+                    <div>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.570210684896!2d27.46280831586425!3d53.84433597985431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e08224e5b8b737%3A0x7e0f7b0e5b8b7b0!2z0J7QutCw0Y8g0L_QvtC20LjRgtC-0LHQsA!5e0!3m2!1sru!2sby!4v1695000000000!5m2!1sru!2sby" 
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div>
+                        <div class="location-card border-l-4 border-granite-500 bg-gray-50 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Склад в Гродно</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="font-semibold text-gray-700">Адрес:</p>
+                                    <p class="text-gray-600">ООО "ПрофиЦвет"<br>г. Гродно, ул. Аульская, 17</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-700">Ответственный:</p>
+                                    <p class="text-gray-600">Андрей</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-700">Телефон:</p>
+                                    <p class="text-gray-600">+375 29 160 93 58</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-700">Часы работы:</p>
+                                    <p class="text-gray-600">Пн-Пт: 8:00 - 18:00<br>Сб: 9:00 - 15:00<br>Вс: выходной</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-700">Наши цены:</p>
+                                    <p class="text-gray-600">
+                                        <a href="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/price/%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%BE%20%D0%9F1.pdf" target="_blank" class="text-granite-600 hover:text-granite-800 underline">
+                                            Цена реализации
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
         </div>
     </section>
 
     <!-- Benefits Section -->
-    <section class="py-16 bg-gray-100">
+    <section class="py-16 bg-granite-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Преимущества работы с нами</h2>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Преимущества работы с нами</h2>
+                <div class="w-20 h-1 bg-granite-600 mx-auto"></div>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                    <div class="text-blue-800 text-3xl mb-4">
-                        <i class="fas fa-truck"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-granite-600 text-2xl"></i>
                     </div>
-                    <h3 class="font-semibold text-lg mb-2">Прямые поставки</h3>
-                    <p class="text-gray-700">От производителя без предоплаты и посредников</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Прямые поставки</h3>
+                    <p class="text-gray-600">От производителя без предоплаты и посредников</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                    <div class="text-blue-800 text-3xl mb-4">
-                        <i class="fas fa-hand-holding-usd"></i>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tag text-granite-600 text-2xl"></i>
                     </div>
-                    <h3 class="font-semibold text-lg mb-2">Честная цена</h3>
-                    <p class="text-gray-700">Прозрачные условия, отсутствие скрытых комиссий</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Честная цена</h3>
+                    <p class="text-gray-600">Прозрачные условия, отсутствие скрытых комиссий</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                    <div class="text-blue-800 text-3xl mb-4">
-                        <i class="fas fa-handshake"></i>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-granite-600 text-2xl"></i>
                     </div>
-                    <h3 class="font-semibold text-lg mb-2">Долгосрочное сотрудничество</h3>
-                    <p class="text-gray-700">Готовы к взаимовыгодному партнерству</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Долгосрочное сотрудничество</h3>
+                    <p class="text-gray-600">Готовы к взаимовыгодному партнерству</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                    <div class="text-blue-800 text-3xl mb-4">
-                        <i class="fas fa-file-contract"></i>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-file-contract text-granite-600 text-2xl"></i>
                     </div>
-                    <h3 class="font-semibold text-lg mb-2">Полный комплект документов</h3>
-                    <p class="text-gray-700">Сертификаты и свидетельства на каждую партию продукции</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Полный комплект документов</h3>
+                    <p class="text-gray-600">Сертификаты и свидетельства на каждую партию продукции</p>
                 </div>
             </div>
         </div>
@@ -174,609 +292,531 @@
     <!-- Partnership Section -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Варианты регионального партнёрства</h2>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Варианты регионального партнёрства</h2>
+                <div class="w-20 h-1 bg-granite-600 mx-auto"></div>
+            </div>
             
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-blue-50 rounded-xl p-6 mb-6">
-                    <div class="flex items-start">
-                        <div class="text-blue-800 text-2xl mr-4 mt-1">
-                            <i class="fas fa-store"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-lg mb-2">Открытие склада</h3>
-                            <p class="text-gray-700">Без выкупа запаса и предоплат. Мы предоставляем продукцию под реализацию.</p>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="border border-granite-200 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-warehouse text-granite-600 text-3xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Открытие склада</h3>
+                    <p class="text-gray-600 mb-4">Без выкупа запаса и предоплат. Мы предоставляем продукцию под реализацию.</p>
                 </div>
                 
-                <div class="bg-blue-50 rounded-xl p-6 mb-6">
-                    <div class="flex items-start">
-                        <div class="text-blue-800 text-2xl mr-4 mt-1">
-                            <i class="fas fa-percentage"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-lg mb-2">Выгодное комиссионное вознаграждение</h3>
-                            <p class="text-gray-700">Гибкие условия и высокие проценты за продажи.</p>
-                        </div>
+                <div class="border border-granite-200 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-percentage text-granite-600 text-3xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Выгодное комиссионное вознаграждение</h3>
+                    <p class="text-gray-600 mb-4">Гибкие условия и высокие проценты за продажи.</p>
                 </div>
                 
-                <div class="bg-blue-50 rounded-xl p-6">
-                    <div class="flex items-start">
-                        <div class="text-blue-800 text-2xl mr-4 mt-1">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-lg mb-2">Эксклюзивное представительство</h3>
-                            <p class="text-gray-700">Возможность стать единственным представителем в вашем регионе.</p>
-                        </div>
+                <div class="border border-granite-200 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-medal text-granite-600 text-3xl"></i>
                     </div>
-                </div>
-                
-                <div class="mt-8 text-center">
-                    <a href="#contacts" class="cta-button bg-blue-800 hover:bg-blue-900 text-white font-medium py-3 px-8 rounded-lg transition duration-300 inline-block">
-                        <i class="fas fa-envelope mr-2"></i>Обсудить партнерство
-                    </a>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Эксклюзивное представительство</h3>
+                    <p class="text-gray-600 mb-4">Возможность стать единственным представителем в вашем регионе.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-100">
+    <section id="about" class="py-16 bg-granite-50">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold mb-6">О компании</h2>
-                <p class="text-lg text-gray-700 mb-6">
-                    <span class="font-semibold">100Granit.by</span> - крупный поставщик гранита в Республику Беларусь, специализирующийся на прямых поставках высококачественного камня из Карелии.
-                </p>
-                <p class="text-lg text-gray-700 mb-8">
-                     Поставляем гранит с  1987 года. В нашем каталоге пород - 7 видов гранита из Карелии и Мурманской области, которые мы получаем и реализуем на партнерских условиях, как официальный представитель производителя.
-       </p>   
-        <p class="text-lg text-gray-700 mb-6">           
-<span class="font-semibold">Лицензированный поставщик сырья и продукции, собственные склады гранита в регионах Республики Беларусь с отгрузкой без ожидания, высокое качество продукции, двухступенчатая система проверки, гарантии. Вся продукция ввезена в РБ с уплатой всех налогов и пошлин, предоставляется полный набор необходимых документов, свидетельства и сертификаты.</span> 
-</p>
-               </p>
-                <h3 class="text-2xl font-semibold mb-6">Наша продукция</h3>
-                
-                <div class="mb-6">
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <button onclick="showProductTab('blocks')" class="product-tab active-tab bg-blue-800 text-white px-4 py-2 rounded-lg">Блоки</button>
-                        <button onclick="showProductTab('slabs')" class="product-tab bg-gray-200 text-gray-800 px-4 py-2 rounded-lg">Слэбы</button>
-                        <button onclick="showProductTab('paving')" class="product-tab bg-gray-200 text-gray-800 px-4 py-2 rounded-lg">Брусчатка</button>
-                        <button onclick="showProductTab('tiles')" class="product-tab bg-gray-200 text-gray-800 px-4 py-2 rounded-lg">Плиты</button>
-                        <button onclick="showProductTab('memorial')" class="product-tab bg-gray-200 text-gray-800 px-4 py-2 rounded-lg">Мемориальные изделия</button>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/images/oNAS.jpg" alt="Месторождение Другорецкое" class="rounded-xl w-full h-96 object-cover">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">О компании</h2>
+                    <p class="text-gray-700 mb-4">
+                        100Granit.by - крупный поставщик гранита в Республику Беларусь, специализирующийся на прямых поставках высококачественного камня из Карелии и Мурманской области.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Поставляем гранит с 1987 года. В нашем каталоге пород - 7 видов гранита, которые мы получаем и реализуем на партнерских условиях, как официальный представитель производителя.
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        Лицензированный поставщик сырья и продукции, собственные склады гранита в регионах Республики Беларусь с отгрузкой без ожидания, высокое качество продукции, двухступенчатая система проверки, гарантии. Вся продукция ввезена в РБ с уплатой всех налогов и пошлин, предоставляется полный набор необходимых документов, свидетельства и сертификаты.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#production" class="bg-granite-600 hover:bg-granite-700 text-white font-medium py-2 px-6 rounded-full transition duration-300">
+                            Наша продукция
+                        </a>
+                   
                     </div>
-                    
-                    <div id="blocksTab" class="product-content bg-gray-50 p-6 rounded-lg">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold text-lg mb-3">Гранитные блоки</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                    <li>Размеры от 1 до 3 м³</li>
-                                    <li>Различные сорта и цвета</li>
-                                    <li>Прямые поставки из Карелии</li>
-                                    <li>Сертифицированное качество</li>
-                                </ul>
-                            </div>
-                            <div class="rounded-lg overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Гранитные блоки" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="slabsTab" class="product-content hidden bg-gray-50 p-6 rounded-lg">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold text-lg mb-3">Гранитные слэбы</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                    <li>Толщина от 20 до 100 мм</li>
-                                    <li>Полированная и термообработанная поверхность</li>
-                                    <li>Широкий выбор фактур</li>
-                                    <li>Идеально для столешниц и облицовки</li>
-                                </ul>
-                            </div>
-                            <div class="rounded-lg overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Гранитные слэбы" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="pavingTab" class="product-content hidden bg-gray-50 p-6 rounded-lg">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold text-lg mb-3">Гранитная брусчатка</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                    <li>Размеры от 50×50 до 100×100 мм</li>
-                                    <li>Колотая и пиленая поверхность</li>
-                                    <li>Морозостойкость F300</li>
-                                    <li>Для мощения дорожек и площадей</li>
-                                </ul>
-                            </div>
-                            <div class="rounded-lg overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Гранитная брусчатка" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="tilesTab" class="product-content hidden bg-gray-50 p-6 rounded-lg">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold text-lg mb-3">Гранитные плиты</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                    <li>Толщина от 10 до 30 мм</li>
-                                    <li>Различные форматы и обработка</li>
-                                    <li>Для фасадов и интерьеров</li>
-                                    <li>Долговечность более 100 лет</li>
-                                </ul>
-                            </div>
-                            <div class="rounded-lg overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Гранитные плиты" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="memorialTab" class="product-content hidden bg-gray-50 p-6 rounded-lg">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold text-lg mb-3">Мемориальные изделия</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                    <li>Памятники и надгробия</li>
-                                    <li>Цветники и стелы</li>
-                                    <li>Индивидуальный дизайн</li>
-                                    <li>Гарантия на обработку 25 лет</li>
-                                </ul>
-                            </div>
-                            <div class="rounded-lg overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Мемориальные изделия" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    </div>
-                    <div id="constructionTab" class="product-content hidden bg-gray-50 p-6 rounded-lg">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold text-lg mb-3">Строительная продукция</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                    <li>Фундаментные блоки</li>
-                                    <li>Облицовочные материалы</li>
-                                    <li>Архитектурные элементы</li>
-                                    <li>Ландшафтные конструкции</li>
-                                </ul>
-                            </div>
-                            <div class="rounded-lg overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Строительная продукция" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="production" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Наша продукция</h2>
+                <div class="w-20 h-1 bg-granite-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Гранитные блоки</h3>
+                        <p class="text-gray-600 mb-4">Массивные заготовки из природного камня,  для дальнейшей обработки и производства различных строительных материалов</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Толщина от 20 до 100 мм</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Полированная и термообработанная поверхность</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Широкий выбор уникальных природных фактур, рисунков и цветов гранита </span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Идеально для столешниц, фасадов и элементов ландшафтного дизайна</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 
-                <p class="text-lg text-gray-700">
-                    Наши клиенты - это гранитные мастерские, строительные компании и бригады по благоустройству, которые ценят качество, надежность и стабильность поставок.
-                </p>
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Гранитные слэбы</h3>
+                        <p class="text-gray-600 mb-4">Полированные плиты из натурального гранита для столешниц, подоконников и облицовки</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Толщина от 20 до 100 мм</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Полированная и термообработанная поверхность</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Широкий выбор фактур</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Идеально для столешниц и облицовки</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Гранитная брусчатка</h3>
+                        <p class="text-gray-600 mb-4">Прочное и долговечное покрытие для мощения дорожек, площадей и тротуаров</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Размеры от 50×50 до 100×100 мм</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Колотая и пиленая поверхность</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Морозостойкость F300</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Для мощения дорожек и площадей</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Гранитные плиты</h3>
+                        <p class="text-gray-600 mb-4">Облицовочные плиты для фасадов, полов и интерьеров с различной обработкой поверхности</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Толщина от 10 до 30 мм</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Различные форматы и обработка</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Для фасадов и интерьеров</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Долговечность более 100 лет</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Мемориальные изделия</h3>
+                        <p class="text-gray-600 mb-4">Памятники, надгробия и другие изделия из гранита с индивидуальным дизайном</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Памятники и надгробия</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Цветники и стелы</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Индивидуальный дизайн</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Гарантия на обработку 25 лет</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Строительная продукция</h3>
+                        <p class="text-gray-600 mb-4">Фундаментные блоки, архитектурные элементы и другие строительные материалы из гранита</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Фундаментные блоки</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Облицовочные материалы</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Архитектурные элементы</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
+                                <span>Ландшафтные конструкции</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Mining Section -->
-    <section id="mining" class="py-16 bg-white">
+    <section id="mining" class="mining-bg text-white py-16">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Месторождения и добыча</h2>
-            
-            <!-- Mining Slider -->
-            <div class="max-w-4xl mx-auto">
-                <!-- Slider Navigation -->
-                <div class="flex justify-center gap-3 mb-8 flex-wrap">
-                    <button onclick="showMiningSlide(0)" id="miningBtn0" class="mining-btn active-mining bg-blue-800 text-white font-medium py-2 px-5 rounded-lg transition duration-300 text-sm">
-                        Другорецкое
-                    </button>
-                    <button onclick="showMiningSlide(1)" id="miningBtn1" class="mining-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-5 rounded-lg transition duration-300 text-sm">
-                        Винга
-                    </button>
-                    <button onclick="showMiningSlide(2)" id="miningBtn2" class="mining-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-5 rounded-lg transition duration-300 text-sm">
-                        Ловчорр
-                    </button>
-                    <button onclick="showMiningSlide(3)" id="miningBtn3" class="mining-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-5 rounded-lg transition duration-300 text-sm">
-                        Дядина Гора
-                    </button>
-                    <button onclick="showMiningSlide(4)" id="miningBtn4" class="mining-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-5 rounded-lg transition duration-300 text-sm">
-                        Чарнокитовое
-                    </button>
-                    <button onclick="showMiningSlide(5)" id="miningBtn5" class="mining-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-5 rounded-lg transition duration-300 text-sm">
-                        Хауки
-                    </button>
-                </div>
-                
-                <!-- Mining Slides -->
-                <div id="miningSlide0" class="mining-slide fade-in">
-                    <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/2">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Месторождение Другорецкое" 
-                                     class="rounded-lg w-full h-48 object-cover">
-                            </div>
-                            <div class="md:w-1/2">
-                                <h3 class="text-2xl font-semibold mb-4">Месторождение "Другорецкое"</h3>
-                                <p class="text-gray-700 mb-4">
-                                    Карелия, Пудожский район. Богатые залежи высококачественного гранита и габбро с отличными декоративными свойствами.
-                                </p>
-                                <div class="space-y-3">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Открытый и подземный способы добычи</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Современное оборудование и технологии</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Многоступенчатый контроль качества</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Экологически ответственная добыча</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="miningSlide1" class="mining-slide hidden">
-                    <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/2">
-                                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Месторождение Кашина Гора" 
-                                     class="rounded-lg w-full h-48 object-cover">
-                            </div>
-                            <div class="md:w-1/2">
-                                <h3 class="text-2xl font-semibold mb-4">Месторождение "Винга"</h3>
-                                <p class="text-gray-700 mb-4">
-                                    Ленинградская область, Приозерский район. Уникальные граниты розового и красного оттенков для архитектуры и дизайна.
-                                </p>
-                                <div class="space-y-3">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Карьерная добыча с алмазными технологиями</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Высокое качество полировки и обработки</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Уникальная цветовая гамма</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Сертифицированное качество по ГОСТ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="miningSlide2" class="mining-slide hidden">
-                    <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/2">
-                                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Месторождение Возрождение" 
-                                     class="rounded-lg w-full h-48 object-cover">
-                            </div>
-                            <div class="md:w-1/2">
-                                <h3 class="text-2xl font-semibold mb-4">Месторождение "Ловчорр"</h3>
-                                <p class="text-gray-700 mb-4">
-                                    Кольский полуостров, Хибинский массив.
-Элитные граниты редкого сине-серого оттенка с уникальной кристаллической структурой для эксклюзивных проектов.
-                                </p>
-                                <div class="space-y-3">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Добыча в сложных арктических условиях</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Повышенная плотность и морозостойкость</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Декоративные серебристые вкрапления</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Сертификация по международным стандартам ISO</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="miningSlide3" class="mining-slide hidden">
-                    <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/2">
-                                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Месторождение Габбро-Диабаз" 
-                                     class="rounded-lg w-full h-48 object-cover">
-                            </div>
-                            <div class="md:w-1/2">
-                                <h3 class="text-2xl font-semibold mb-4">Месторождение "Дядина Гора"</h3>
-                                <p class="text-gray-700 mb-4">
-                                    Карелия, Пудожский район. Высококачественный гранит с уникальной фактурой и цветовой гаммой (характерные для Карелии оттенки серого, красного, розового)
-                                </p>
-                                <div class="space-y-3">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Открытый карьерный метод добычи</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Применение современной горной техники  для эффективной и безопасной добычи</span>
-                                    </div>
-                                    
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Камень отличается высокой прочностью, морозостойкостью и эстетической привлекательностью, что делает его востребованным для облицовки фасадов и интерьеров, производства памятников и скульптур, создания брусчатки и архитектурных элементов</span>
-                                    </div>
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="miningSlide4" class="mining-slide hidden">
-                    <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/2">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Месторождение Чарнокитовое" 
-                                     class="rounded-lg w-full h-48 object-cover">
-                            </div>
-                            <div class="md:w-1/2">
-                                <h3 class="text-2xl font-semibold mb-4">Месторождение "Чарнокитовое"</h3>
-                                <p class="text-gray-700 mb-4">
-                                    Карелия, Прионежский район. Уникальные чарнокитовые граниты с характерными темными минералами (преимущественно биотит и роговая обманка) и высокой прочностью (предел прочности на сжатие 180-220 МПа).
-                                </p>
-                                <div class="space-y-3">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Год открытия: 1968, промышленная разработка с 1975 года</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Запасы: 12.5 млн м³ (категории A+B+C1)</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Глубина залегания: 15-40 метров, открытый способ добычи</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Годовая добыча: 25,000 м³ блоков</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Характеристики: плотность 2.75 г/см³, водопоглощение 0.15%</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Морозостойкость: F300, истираемость 0.35 г/см²</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Применение: монументальные сооружения, облицовка, брусчатка</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="miningSlide5" class="mining-slide hidden">
-                    <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/2">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                                     alt="Месторождение Хауки" 
-                                     class="rounded-lg w-full h-48 object-cover">
-                            </div>
-                            <div class="md:w-1/2">
-                                <h3 class="text-2xl font-semibold mb-4">Месторождение "Хауки"</h3>
-                                <p class="text-gray-700 mb-4">
-                                    Финляндия, регион Южная Карелия. Элитные граниты с мелкозернистой структурой и равномерным цветовым распределением.
-                                </p>
-                                <div class="space-y-3">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Добыча с соблюдением европейских экологических стандартов</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Идеальная геометрия блоков</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Широкий спектр серых и бежевых оттенков</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-blue-800 mr-3"></i>
-                                        <span class="text-gray-700">Сертификация CE и ISO 9001</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Production Section -->
-    <section id="production" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Производство</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h3 class="text-xl font-semibold mb-4">Наша продукция</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <div class="text-blue-800 mr-2 mt-1">
-                                <i class="fas fa-cube"></i>
-                            </div>
-                            <span>Гранитные блоки и слэбы</span>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="text-blue-800 mr-2 mt-1">
-                                <i class="fas fa-border-all"></i>
-                            </div>
-                            <span>Гранитная брусчатка различных размеров</span>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="text-blue-800 mr-2 mt-1">
-                                <i class="fas fa-th-large"></i>
-                            </div>
-                            <span>Гранитные плиты для мощения</span>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="text-blue-800 mr-2 mt-1">
-                                <i class="fas fa-monument"></i>
-                            </div>
-                            <span>Мемориальные изделия</span>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="text-blue-800 mr-2 mt-1">
-                                <i class="fas fa-archway"></i>
-                            </div>
-                            <span>Архитектурные элементы</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h3 class="text-xl font-semibold mb-4">Контроль качества</h3>
-                    <p class="text-gray-700 mb-4">
-                        Каждая партия продукции проходит строгий многоступенчатый контроль качества на всех этапах производства.
-                    </p>
-                    <div class="space-y-3">
-                        <div class="flex items-start">
-                            <div class="text-blue-800 mr-3 mt-1">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <p class="text-gray-700">Визуальный осмотр на дефекты</p>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-blue-800 mr-3 mt-1">
-                                <i class="fas fa-ruler-combined"></i>
-                            </div>
-                            <p class="text-gray-700">Проверка геометрических параметров</p>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-blue-800 mr-3 mt-1">
-                                <i class="fas fa-flask"></i>
-                            </div>
-                            <p class="text-gray-700">Лабораторные испытания прочности</p>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-blue-800 mr-3 mt-1">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <p class="text-gray-700">Сертификация соответствия стандартам</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Месторождения и добыча</h2>
+                <div class="w-20 h-1 bg-white mx-auto"></div>
             </div>
             
-            <div class="text-center">
-                <a href="#contacts" class="cta-button bg-blue-800 hover:bg-blue-900 text-white font-medium py-3 px-8 rounded-lg transition duration-300 inline-block">
-                    <i class="fas fa-file-alt mr-2"></i>Запросить прайс-лист
+            <!-- Quarry Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <a href="#quarry-drugoreckoe" class="quarry-tab px-4 py-2 bg-white text-granite-800 rounded-lg font-medium transition duration-300" data-quarry="drugoreckoe">
+                    Другорецкое
+                </a>
+                <a href="#quarry-vinga" class="quarry-tab px-4 py-2 bg-granite-700 text-white rounded-lg font-medium transition duration-300" data-quarry="vinga">
+                    Винга
+                </a>
+                <a href="#quarry-lovchorr" class="quarry-tab px-4 py-2 bg-granite-700 text-white rounded-lg font-medium transition duration-300" data-quarry="lovchorr">
+                    Ловчорр
+                </a>
+                <a href="#quarry-dyadina-gora" class="quarry-tab px-4 py-2 bg-granite-700 text-white rounded-lg font-medium transition duration-300" data-quarry="dyadina-gora">
+                    Дядина Гора
+                </a>
+                <a href="#quarry-charnokitovoe" class="quarry-tab px-4 py-2 bg-granite-700 text-white rounded-lg font-medium transition duration-300" data-quarry="charnokitovoe">
+                    Чарнокитовое
+                </a>
+                <a href="#quarry-hauki" class="quarry-tab px-4 py-2 bg-granite-700 text-white rounded-lg font-medium transition duration-300" data-quarry="hauki">
+                    Хауки
                 </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Work Process Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Как мы работаем</h2>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="step-card bg-gray-50 p-6 rounded-xl shadow-sm transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-800 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
-                            <span class="font-bold">1</span>
+            <!-- Quarry Content -->
+            <div class="quarry-content-container">
+                <!-- Другорецкое -->
+                <div id="quarry-drugoreckoe" class="quarry-content">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                            <img src="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/images/drugoreckoe1.jpg" alt="Месторождение Другорецкое" class="rounded-xl w-full h-96 object-cover">
                         </div>
-                        <h3 class="font-semibold text-lg">Заявка</h3>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold mb-6">Месторождение "Другорецкое"</h3>
+                            <p class="mb-6">
+                                Карелия, Пудожский район. Богатые залежи высококачественного гранита и габбро с отличными декоративными свойствами.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-mountain text-white text-xl mr-3 mt-1"></i>
+                                    <p>Открытый и подземный способы добычи</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-tools text-white text-xl mr-3 mt-1"></i>
+                                    <p>Современное оборудование и технологии</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-vial text-white text-xl mr-3 mt-1"></i>
+                                    <p>Многоступенчатый контроль качества</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-leaf text-white text-xl mr-3 mt-1"></i>
+                                    <p>Экологически ответственная добыча</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-gray-700">Вы оставляете заявку на сайте или по телефону с указанием необходимой продукции и объемов.</p>
                 </div>
                 
-                <div class="step-card bg-gray-50 p-6 rounded-xl shadow-sm transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-800 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
-                            <span class="font-bold">2</span>
+                <!-- Винга -->
+                <div id="quarry-vinga" class="quarry-content hidden">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                            <img src="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/images/Vinga.jpg" alt="Месторождение Винга" class="rounded-xl w-full h-96 object-cover">
                         </div>
-                        <h3 class="font-semibold text-lg">Консультация</h3>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold mb-6">Месторождение "Винга"</h3>
+                            <p class="mb-6">
+                                Карелия, Медвежьегорский район. Месторождение гранита средней крупности с выраженной сланцеватостью. 
+                                Отличается высокой плотностью и хорошей обрабатываемостью.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-mountain text-white text-xl mr-3 mt-1"></i>
+                                    <p>Открытый способ добычи</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-tools text-white text-xl mr-3 mt-1"></i>
+                                    <p>Специализированное оборудование для раскола плит</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-vial text-white text-xl mr-3 mt-1"></i>
+                                    <p>Контроль зернового состава и однородности</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-leaf text-white text-xl mr-3 mt-1"></i>
+                                    <p>Минимальное воздействие на окружающую среду</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-gray-700">Наш специалист связывается с вами для уточнения деталей и согласования условий.</p>
                 </div>
                 
-                <div class="step-card bg-gray-50 p-6 rounded-xl shadow-sm transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-800 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
-                            <span class="font-bold">3</span>
+                <!-- Ловчорр -->
+                <div id="quarry-lovchorr" class="quarry-content hidden">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                            <img src="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/images/lovchorr.jpg" alt="Месторождение Ловчорр" class="rounded-xl w-full h-96 object-cover">
                         </div>
-                        <h3 class="font-semibold text-lg">Договор</h3>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold mb-6">Месторождение "Ловчорр"</h3>
+                            <p class="mb-6">
+                                Карелия, Костомукшский район. Известно высококачественным габбро-диабазом темно-серого цвета с золотистым отливом.
+                                Используется для изготовления высокопрочных изделий и декоративных элементов.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-mountain text-white text-xl mr-3 mt-1"></i>
+                                    <p>Подземный способ добычи</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-tools text-white text-xl mr-3 mt-1"></i>
+                                    <p>Алмазное оборудование для точной обработки</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-vial text-white text-xl mr-3 mt-1"></i>
+                                    <p>Полный спектр испытаний прочности</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-leaf text-white text-xl mr-3 mt-1"></i>
+                                    <p>Система водоочистки и рециркуляции</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-gray-700">Заключаем договор с четкими условиями поставки, сроками и ответственностью сторон.</p>
                 </div>
                 
-                <div class="step-card bg-gray-50 p-6 rounded-xl shadow-sm transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-800 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
-                            <span class="font-bold">4</span>
+                <!-- Дядина Гора -->
+                <div id="quarry-dyadina-gora" class="quarry-content hidden">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                            <img src="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/images/didinagora.jpeg" alt="Месторождение Дядина Гора" class="rounded-xl w-full h-96 object-cover">
                         </div>
-                        <h3 class="font-semibold text-lg">Поставка</h3>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold mb-6">Месторождение "Дядина Гора"</h3>
+                            <p class="mb-6">
+                                Карелия, Сегежский район. Уникальное месторождение красного гранита с редким рисунком.
+                                Отличается высоким содержанием железистых включений, создающих эффектную фактуру.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-mountain text-white text-xl mr-3 mt-1"></i>
+                                    <p>Комбинированный способ добычи</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-tools text-white text-xl mr-3 mt-1"></i>
+                                    <p>Специализированная техника для добычи с сохранением структуры</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-vial text-white text-xl mr-3 mt-1"></i>
+                                    <p>Контроль цветовой гаммы и рисунка</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-leaf text-white text-xl mr-3 mt-1"></i>
+                                    <p>Особая система защиты горных пород</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-gray-700">Осуществляем поставку продукции на ваш склад или объект с полным комплектом документов.</p>
+                </div>
+                
+                <!-- Чарнокитовое -->
+                <div id="quarry-charnokitovoe" class="quarry-content hidden">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                            <img src="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/images/chornokitova.jpeg" alt="Месторождение Чарнокитовое" class="rounded-xl w-full h-96 object-cover">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold mb-6">Месторождение "Чарнокитовое"</h3>
+                            <p class="mb-6">
+                                Карелия, Кемский район. Редкое месторождение черного гранита с высоким содержанием пироксена и роговой обманки.
+                                Ценится за однородную структуру и высокую полировку.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-mountain text-white text-xl mr-3 mt-1"></i>
+                                    <p>Открытый карьерный способ</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-tools text-white text-xl mr-3 mt-1"></i>
+                                    <p>Прецизионное оборудование для обработки плотных пород</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-vial text-white text-xl mr-3 mt-1"></i>
+                                    <p>Полная петрографическая характеристика</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-leaf text-white text-xl mr-3 mt-1"></i>
+                                    <p>Контроль пылевого фактора и шумового загрязнения</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Хауки -->
+                <div id="quarry-hauki" class="quarry-content hidden">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                            <img src="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/images/hauki.jpeg" alt="Месторождение Хауки" class="rounded-xl w-full h-96 object-cover">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold mb-6">Месторождение "Хауки"</h3>
+                            <p class="mb-6">
+                                Карелия, Сортавальский район. Месторождение гранита пикритового типа с перламутровым блеском.
+                                Особенность составляет наличие микроскопических включений слюды и кварца.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-mountain text-white text-xl mr-3 mt-1"></i>
+                                    <p>Террасный способ вскрытия породы</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-tools text-white text-xl mr-3 mt-1"></i>
+                                    <p>Специализированное оборудование для микротонкой резки</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-vial text-white text-xl mr-3 mt-1"></i>
+                                    <p>Анализ оптических и кристаллографических свойств</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-leaf text-white text-xl mr-3 mt-1"></i>
+                                    <p>Восстановление и сохранение природного ландшафта</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-<
-    <!-- FAQ Section -->
-    <section id="faq" class="py-16 bg-gray-100">
+
+    <!-- Process Section -->
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Вопрос/Ответ</h2>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Как мы работаем</h2>
+                <div class="w-20 h-1 bg-granite-600 mx-auto"></div>
+            </div>
             
-            <div class="max-w-3xl mx-auto space-y-4">
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <button onclick="toggleFAQ(1)" class="flex justify-between items-center w-full text-left">
-                        <h3 class="font-semibold text-lg">Какие документы предоставляются с продукцией?</h3>
-                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300" id="faqIcon1"></i>
-                    </button>
-                    <div id="faqAnswer1" class="hidden mt-4 text-gray-700">
+            <div class="flex flex-col md:flex-row justify-center items-start gap-12">
+                <div class="text-center w-full md:w-64">
+                    <div class="step-number">1</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Заявка</h3>
+                    <p class="text-gray-600">Вы оставляете заявку на сайте, по телефону или через чат ассистента сайта с указанием необходимой продукции и объемов.</p>
+                </div>
+                
+                <div class="text-center w-full md:w-64">
+                    <div class="step-number">2</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Договор</h3>
+                    <p class="text-gray-600">Наш специалист связывается с вами для консультации и заключения договора с четкими условиями поставки.</p>
+                </div>
+                
+                <div class="text-center w-full md:w-64">
+                    <div class="step-number">3</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Поставка</h3>
+                    <p class="text-gray-600">Осуществляем поставку продукции на ваш склад или объект с полным комплектом документов.</p>
+                </div>
+                
+                <div class="text-center w-full md:w-64">
+                    <div class="step-number">4</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Оплата</h3>
+                    <p class="text-gray-600">Вы производите оплату по факту получения продукции.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-granite-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Вопрос/Ответ</h2>
+                <div class="w-20 h-1 bg-granite-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-item bg-white rounded-lg shadow-sm mb-4">
+                    <div class="p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-bold text-gray-900">Какие документы вы предоставляете?</h3>
+                        <i class="fas fa-chevron-down text-granite-600"></i>
+                    </div>
+                    <div class="faq-content px-6 pb-6 text-gray-600">
                         <p>С каждой партией продукции мы предоставляем полный комплект документов, включая:</p>
                         <ul class="list-disc pl-5 mt-2 space-y-1">
                             <li>Кассовый чек</li>
@@ -785,12 +825,12 @@
                     </div>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <button onclick="toggleFAQ(2)" class="flex justify-between items-center w-full text-left">
-                        <h3 class="font-semibold text-lg">Какие сроки поставки продукции?</h3>
-                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300" id="faqIcon2"></i>
-                    </button>
-                    <div id="faqAnswer2" class="hidden mt-4 text-gray-700">
+                <div class="faq-item bg-white rounded-lg shadow-sm mb-4">
+                    <div class="p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-bold text-gray-900">Какие сроки поставки?</h3>
+                        <i class="fas fa-chevron-down text-granite-600"></i>
+                    </div>
+                    <div class="faq-content px-6 pb-6 text-gray-600">
                         <p>Сроки поставки зависят от наличия продукции на складах:</p>
                         <ul class="list-disc pl-5 mt-2 space-y-1">
                             <li>При наличии на складе в Беларуси - от 1 до 3 рабочих дней</li>
@@ -800,12 +840,12 @@
                     </div>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <button onclick="toggleFAQ(3)" class="flex justify-between items-center w-full text-left">
-                        <h3 class="font-semibold text-lg">Какие способы оплаты доступны?</h3>
-                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300" id="faqIcon3"></i>
-                    </button>
-                    <div id="faqAnswer3" class="hidden mt-4 text-gray-700">
+                <div class="faq-item bg-white rounded-lg shadow-sm mb-4">
+                    <div class="p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-bold text-gray-900">Какие есть способы оплаты?</h3>
+                        <i class="fas fa-chevron-down text-granite-600"></i>
+                    </div>
+                    <div class="faq-content px-6 pb-6 text-gray-600">
                         <p>Мы предлагаем несколько удобных способов оплаты:</p>
                         <ul class="list-disc pl-5 mt-2 space-y-1">
                             <li>Безналичный расчет для юридических лиц</li>
@@ -816,28 +856,24 @@
                     </div>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <button onclick="toggleFAQ(4)" class="flex justify-between items-center w-full text-left">
-                        <h3 class="font-semibold text-lg">Производите ли вы установку памятников?</h3>
-                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300" id="faqIcon4"></i>
-                    </button>
-                    <div id="faqAnswer4" class="hidden mt-4 text-gray-700">
-                        <p>Нет, мы оптовая компания и предоставляем продукцию из камня по оптовым ценам. 
-Вы можете заказать дальнейшую обработку камня и установку непосредственно у нашего Партнера-оператора складов
-</p>
-                        </ul>
+                <div class="faq-item bg-white rounded-lg shadow-sm mb-4">
+                    <div class="p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-bold text-gray-900">Работаете ли вы с физическими лицами?</h3>
+                        <i class="fas fa-chevron-down text-granite-600"></i>
+                    </div>
+                    <div class="faq-content px-6 pb-6 text-gray-600">
+                        <p>Нет, мы оптовая компания и предоставляем продукцию из камня по оптовым ценам. Вы можете заказать дальнейшую обработку камня и установку непосредственно у нашего Партнера-оператора складов.</p>
                     </div>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <button onclick="toggleFAQ(5)" class="flex justify-between items-center w-full text-left">
-                        <h3 class="font-semibold text-lg">Как стать региональным представителем?</h3>
-                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300" id="faqIcon5"></i>
-                    </button>
-                    <div id="faqAnswer5" class="hidden mt-4 text-gray-700">
+                <div class="faq-item bg-white rounded-lg shadow-sm">
+                    <div class="p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-bold text-gray-900">Как стать вашим региональным представителем?</h3>
+                        <i class="fas fa-chevron-down text-granite-600"></i>
+                    </div>
+                    <div class="faq-content px-6 pb-6 text-gray-600">
                         <p>Чтобы стать нашим региональным представителем, необходимо:</p>
                         <ul class="list-disc pl-5 mt-2 space-y-1">
-                          
                             <li>Располагать складскими помещениями (или возможностью их аренды)</li>
                             <li>Иметь клиентскую базу или возможности для ее развития</li>
                             <li>Заполнить анкету на нашем сайте или связаться с отделом партнерства</li>
@@ -849,287 +885,235 @@
         </div>
     </section>
 
-    <!-- Contacts Section -->
-    <section id="contacts" class="py-16 bg-blue-800 text-white">
+    <!-- Contact Section -->
+    <section id="contacts" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Контакты</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="text-center">
-                    <div class="text-3xl mb-4">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2">Телефон</h3>
-                    <div class="space-y-2">
-                        <p><a href="tel:+375291234567" class="hover:underline">+375-291-331-694</a></p>
-                    </div>
-                </div>
-                
-                <div class="text-center">
-                    <div class="text-3xl mb-4">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2">Электронная почта</h3>
-                    <p><a href="mailto:info@100granit.by" class="hover:underline">buhgelato@mail.ru</a></p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="text-3xl mb-4">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2">Режим работы</h3>
-                    <p>Пн-Пт: 9:00 - 18:00</p>
-                                   </div>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Контакты</h2>
+                <div class="w-20 h-1 bg-granite-600 mx-auto"></div>
             </div>
             
-            <div class="max-w-2xl mx-auto mt-12">
-                <h3 class="font-semibold text-xl text-center mb-6">Остались вопросы? Напишите нам</h3>
-                <form class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <input type="text" placeholder="Ваше имя" class="w-full px-4 py-3 rounded-lg bg-blue-700 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Свяжитесь с нами</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-granite-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-granite-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Телефон</h4>
+                                <a href="tel:+375291331694" class="text-gray-600 hover:text-granite-800">+375-291-331-694</a>
+                            </div>
                         </div>
-                        <div>
-                            <input type="tel" placeholder="Телефон" class="w-full px-4 py-3 rounded-lg bg-blue-700 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500" style="color: white;">
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-granite-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-granite-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Email</h4>
+                                <p class="text-gray-600">support@100granit.by</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-granite-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-granite-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Адрес</h4>
+                                <p class="text-gray-600">г. Могилёв, пер.Гаражный,17</p>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg bg-blue-700 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    
+                    <div class="mt-10">
+                        <h4 class="font-bold text-gray-900 mb-4">Мессенджеры для связи</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-granite-100 rounded-full flex items-center justify-center hover:bg-granite-600 hover:text-white transition duration-300">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-granite-100 rounded-full flex items-center justify-center hover:bg-granite-600 hover:text-white transition duration-300">
+                                <i class="fab fa-viber"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-granite-100 rounded-full flex items-center justify-center hover:bg-granite-600 hover:text-white transition duration-300">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div>
-                        <textarea placeholder="Ваше сообщение" rows="4" class="w-full px-4 py-3 rounded-lg bg-blue-700 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="cta-button bg-white hover:bg-gray-100 text-blue-800 font-medium py-3 px-8 rounded-lg transition duration-300">
-                            <i class="fas fa-paper-plane mr-2"></i>Отправить сообщение
-                        </button>
-                    </div>
-                </form>
+                </div>
+                
+                <div>
+                    <form class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Отправить сообщение</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <input type="text" placeholder="Ваше имя" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-granite-500">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Ваш email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-granite-500">
+                            </div>
+                            <div>
+                                <input type="tel" placeholder="Ваш номер телефона" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-granite-500">
+                            </div>
+                            <div>
+                                <textarea placeholder="Ваше сообщение" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-granite-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-granite-600 hover:bg-granite-700 text-white font-medium py-3 px-6 rounded transition duration-300">
+                                Отправить сообщение
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-b from-gray-800 to-gray-900 text-gray-300 py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
-                <div class="bg-gray-700 bg-opacity-40 p-6 rounded-xl h-full">
-                    <h3 class="text-white text-sm font-bold mb-4 border-b border-gray-600 pb-2">Реквизиты</h3>
-                    <div class="text-white space-y-3 text-sm">
-                        <p>ЧТУП «Желатофуд»</p>
-                        <p>Юр. адрес: 212030 Минск, пер.Гаражный, д.4 офис 10</p>
-                        <p>Факт. адрес: 212012 Минск, пер.Гаражный,17</p>
-                        <p>УНП 790761093</p>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-700 bg-opacity-40 p-6 rounded-xl h-full">
-                    <h3 class="text-white text-sm font-bold mb-4 border-b border-gray-600 pb-2">Правовая информация</h3>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="/docs/privacy-policy.pdf" target="_blank" class="hover:text-white transition">Политика обработки персональных данных</a></li>
-                        <li><a href="/docs/public-offer.pdf" target="_blank" class="hover:text-white transition">Публичная оферта</a></li>
-                        <li><a href="/docs/warranty-policy.pdf" target="_blank" class="hover:text-white transition">Гарантийная политика</a></li>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Навигация</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">О компании</a></li>
+                        <li><a href="#mining" class="text-gray-400 hover:text-white transition duration-300">Добыча</a></li>
+                        <li><a href="#production" class="text-gray-400 hover:text-white transition duration-300">Производство</a></li>
+                        <li><a href="#warehouses" class="text-gray-400 hover:text-white transition duration-300">Склады</a></li>
+                        <li><a href="#contacts" class="text-gray-400 hover:text-white transition duration-300">Контакты</a></li>
                     </ul>
                 </div>
                 
-                <div class="bg-gray-700 bg-opacity-40 p-6 rounded-xl h-full">
-                    <h3 class="text-white text-sm font-bold mb-4 border-b border-gray-600 pb-2">Способы оплаты</h3>
-                    <ul class="space-y-3 text-sm">
-                        <li>Банковские карты</li>
-                        <li>Безналичный расчёт</li>
-                        <li>Наличные</li>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Реквизиты</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>ЧТУП «Желатофуд»</li>
+                        <li>Юр. адрес: 212030 Могилёв, пер.Гаражный, д.4 офис 10</li>
+                        <li>Факт. адрес: 212012 Могилёв, пер.Гаражный,17</li>
+                        <li>УНП 790761093</li>
                     </ul>
                 </div>
-
-                <div id="prices" class="bg-gray-700 bg-opacity-40 p-6 rounded-xl h-full">
-                    <h3 class="text-white text-sm font-bold mb-4 border-b border-gray-600 pb-2">Цены реализации</h3>
-                    <ul class="space-y-3 text-sm">
-                        <li>
-                            <a href="/docs/supply-minsk.pdf" target="_blank" class="hover:text-white transition flex items-center">
-                                <i class="fas fa-file-pdf mr-2 text-red-400"></i>
-                                Поставка (склад Минск)
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/docs/supply-grodno.pdf" target="_blank" class="hover:text-white transition flex items-center">
-                                <i class="fas fa-file-pdf mr-2 text-red-400"></i>
-                                Поставка (склад Гродно)
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Правовая информация</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-file-alt text-gray-400 mt-1 mr-3"></i>
+                            <a href="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/Documents/PoliticaPersdannyae.pdf" 
+                               target="_blank" 
+                               class="text-gray-400 hover:text-white transition duration-300">
+                                Политика обработки персональных данных
                             </a>
                         </li>
                     </ul>
                 </div>
-            </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">100Granit.by</h3>
+                    <p class="text-gray-400 mb-6">Крупный поставщик гранита в Республике Беларусь</p>
+                    <p>© 2025 Все права защищены</p>
+                </div>
             
-            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
-                <p class="text-gray-400 text-sm">© 2023 ЧТУП «Желатофуд». Все права защищены.</p>
-                <p class="text-gray-500 text-xs mt-2">Официальный представитель производителя гранита в Республике Беларусь</p>
-            </div>
-        </div>
-    </footer>
-
+            
     <script>
-        // Product tabs function
-        function showProductTab(tabName) {
-            const tabs = document.querySelectorAll('.product-tab');
-            const contents = document.querySelectorAll('.product-content');
-            
-            tabs.forEach(tab => {
-                tab.classList.remove('active-tab', 'bg-blue-800', 'text-white');
-                tab.classList.add('bg-gray-200', 'text-gray-800');
-            });
-            
-            contents.forEach(content => {
-                content.classList.add('hidden');
-            });
-            
-            const activeTab = document.querySelector(`.product-tab[onclick="showProductTab('${tabName}')"]`);
-            activeTab.classList.remove('bg-gray-200', 'text-gray-800');
-            activeTab.classList.add('active-tab', 'bg-blue-800', 'text-white');
-            
-            document.getElementById(`${tabName}Tab`).classList.remove('hidden');
-        }
-        
-
-        
-        // Mining slider function
-        function showMiningSlide(index) {
-            const slides = document.querySelectorAll('.mining-slide');
-            const buttons = document.querySelectorAll('.mining-btn');
-            
-            slides.forEach(slide => {
-                slide.classList.add('hidden');
-            });
-            
-            buttons.forEach(button => {
-                button.classList.remove('bg-blue-800', 'text-white', 'active-mining');
-                button.classList.add('bg-gray-200', 'text-gray-800');
-            });
-            
-            const activeButton = document.getElementById(`miningBtn${index}`);
-            activeButton.classList.remove('bg-gray-200', 'text-gray-800');
-            activeButton.classList.add('bg-blue-800', 'text-white', 'active-mining');
-            
-            document.getElementById(`miningSlide${index}`).classList.remove('hidden');
-        }
-        
-        
-        // FAQ toggle function
-        function toggleFAQ(id) {
-            const answer = document.getElementById(`faqAnswer${id}`);
-            const icon = document.getElementById(`faqIcon${id}`);
-            
-            if (answer.classList.contains('hidden')) {
-                answer.classList.remove('hidden');
-                icon.classList.add('transform', 'rotate-180');
-            } else {
-                answer.classList.add('hidden');
-                icon.classList.remove('transform', 'rotate-180');
-            }
-        }
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Warehouse Tabs
+        document.querySelectorAll('.warehouse-tab').forEach(tab => {
+            tab.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                // Remove active class from all tabs
+                document.querySelectorAll('.warehouse-tab').forEach(t => {
+                    t.classList.remove('bg-granite-600', 'text-white', 'active');
+                    t.classList.add('bg-gray-200', 'text-gray-700');
+                });
                 
-                if (targetElement) {
+                // Add active class to clicked tab
+                this.classList.remove('bg-gray-200', 'text-gray-700');
+                this.classList.add('bg-granite-600', 'text-white', 'active');
+                
+                // Hide all content
+                document.querySelectorAll('.warehouse-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show selected content
+                const warehouse = this.dataset.warehouse;
+                document.getElementById(`warehouse-${warehouse}`).classList.remove('hidden');
+            });
+        });
+
+        // Initialize first tab as active
+        document.querySelector('.warehouse-tab.active').click();
+
+        // Quarry Tabs
+        document.querySelectorAll('.quarry-tab').forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all tabs
+                document.querySelectorAll('.quarry-tab').forEach(t => {
+                    t.classList.remove('bg-white', 'text-granite-800');
+                    t.classList.add('bg-granite-700', 'text-white');
+                });
+                
+                // Add active class to clicked tab
+                this.classList.remove('bg-granite-700', 'text-white');
+                this.classList.add('bg-white', 'text-granite-800');
+                
+                // Hide all content
+                document.querySelectorAll('.quarry-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show selected content
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).classList.remove('hidden');
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const header = item.querySelector('.p-6');
+            header.addEventListener('click', () => {
+                item.classList.toggle('active');
+                const icon = header.querySelector('i');
+                if (item.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+        
+        // Enhanced smooth scrolling for all sections
+        document.querySelectorAll('section[id]').forEach(section => {
+            section.style.cursor = 'pointer';
+            section.addEventListener('click', function() {
+                window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: target.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
             });
         });
         
-        // Warehouse toggle function
-        function showWarehouse(warehouse) {
-            const minskBtn = document.getElementById('minskBtn');
-            const grodnoBtn = document.getElementById('grodnoBtn');
-            const minskInfo = document.getElementById('minskInfo');
-            const grodnoInfo = document.getElementById('grodnoInfo');
-            
-            if (warehouse === 'minsk') {
-                minskBtn.classList.remove('bg-gray-200', 'text-gray-800');
-                minskBtn.classList.add('bg-blue-800', 'text-white', 'active-warehouse');
-                grodnoBtn.classList.remove('bg-blue-800', 'text-white', 'active-warehouse');
-                grodnoBtn.classList.add('bg-gray-200', 'text-gray-800');
-                
-                minskInfo.classList.remove('hidden');
-                minskInfo.classList.add('fade-in');
-                grodnoInfo.classList.add('hidden');
-            } else {
-                grodnoBtn.classList.remove('bg-gray-200', 'text-gray-800');
-                grodnoBtn.classList.add('bg-blue-800', 'text-white', 'active-warehouse');
-                minskBtn.classList.remove('bg-blue-800', 'text-white', 'active-warehouse');
-                minskBtn.classList.add('bg-gray-200', 'text-gray-800');
-                
-                grodnoInfo.classList.remove('hidden');
-                grodnoInfo.classList.add('fade-in');
-                minskInfo.classList.add('hidden');
-            }
-        }
-        
-        // Map modal functions
-        function openMapModal(warehouse) {
-            const modal = document.getElementById('mapModal');
-            const modalTitle = document.getElementById('mapModalTitle');
-            const modalMap = document.getElementById('mapModalMap');
-            
-            if (warehouse === 'minsk') {
-                modalTitle.textContent = 'Склад в Минске';
-                modalMap.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.692463223551!2d27.56112431585984!3d53.90225168009959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcf0e8f5d7b0f%3A0x6b7e4e5b3a5f3b1f!2z0JPQu9Cw0LLQvdCw0Y8g0JPQsNC90LjQvNCw0YLQuNGP!5e0!3m2!1sru!2sby!4v1620000000000!5m2!1sru!2sby';
-            } else {
-                modalTitle.textContent = 'Склад в Гродно';
-                modalMap.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.692463223551!2d23.82572431585984!3d53.67895168009959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcf0e8f5d7b0f%3A0x6b7e4e5b3a5f3b1f!2z0JPQu9Cw0LLQvdCw0Y8g0JPQsNC90LjQvNCw0YLQuNGP!5e0!3m2!1sru!2sby!4v1620000000000!5m2!1sru!2sby';
-            }
-            
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeMapModal() {
-            const modal = document.getElementById('mapModal');
-            const modalMap = document.getElementById('mapModalMap');
-            
-            modal.classList.add('hidden');
-            modalMap.src = '';
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Close modal when clicking outside
-        document.getElementById('mapModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeMapModal();
-            }
-        });
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeMapModal();
-            }
-        });
     </script>
-
-    <!-- Map Modal -->
-    <div id="mapModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
-            <div class="flex justify-between items-center p-6 border-b border-gray-200">
-                <h3 id="mapModalTitle" class="text-xl font-semibold text-gray-900"></h3>
-                <button onclick="closeMapModal()" class="text-gray-400 hover:text-gray-600 transition-colors">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-            </div>
-            <div class="p-6">
-                <div class="rounded-lg overflow-hidden h-96">
-                    <iframe id="mapModalMap" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=MYname82/https-huggingface-co-spaces-myname82-granit-tree-main" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p><p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=MYname82/100granit-by" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=MYname82/myname82-100granit" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
 </html>
