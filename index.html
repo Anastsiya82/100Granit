@@ -198,8 +198,8 @@
                     </div>
                     <div class="bg-gray-100 rounded-xl h-full">
                         <div class="relative h-full">
-                            <iframe src="https://yandex.by/map-widget/v1/?ll=27.612070%2C53.889057&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NzYyMzQ5MxJb0KDQvtGB0YHQuNGPLCDQnNC40L3RgdC60LDRjyDQmtC40ZfQstGB0LrQuNC5INCk0YDQsNC90YbQuNGPLCDQn9GA0LjRhtCw0L3QsCDQn9Cw0YDQuNGC0L3QsNGB0YHQutC40Lkg0YLRg9C70YzRhtCwLCAxNjgvMTgiCg3Z5hVCFd4VX0I%2C&z=16.8" width="100%" height="100%" frameborder="0" allowfullscreen="true"></iframe>
-                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <iframe src="https://yandex.by/map-widget/v1/?ll=27.681172%2C53.854199&z=16&pt=27.681172%2C53.854199%2Cpmrdm" width="100%" height="100%" frameborder="0" allowfullscreen="true"></iframe>
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer" onclick="openYandexMap('г.Минск, Пр.Партизанский,168/18', '27.681172,53.854199')">
                                 <span class="bg-white text-granite-800 font-bold py-2 px-4 rounded-lg">Карта проезда</span>
                             </div>
                         </div>
@@ -227,8 +227,8 @@
                     </div>
                     <div class="bg-gray-100 rounded-xl h-full">
                         <div class="relative h-full">
-                            <iframe src="https://yandex.by/map-widget/v1/?ll=23.809224%2C53.703092&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NzYyMzQ5NBJN0KDQvtGB0YHQuNGPLCDQnNC40L3RgdC60LDRjyDQmtC40ZfQstGB0LrQuNC5INCk0YDQsNC90YbQuNGPLCDQkNC90LTRgNC40Lkg0J_QvtC70YzRhtCwLCAxNyIKDdDmFUIW3hVfQg%2C&z=16.8" width="100%" height="100%" frameborder="0" allowfullscreen="true"></iframe>
-                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <iframe src="https://yandex.by/map-widget/v1/?ll=23.954673%2C53.673679&z=16&pt=23.954673%2C53.673679%2Cpmrdm" width="100%" height="100%" frameborder="0" allowfullscreen="true"></iframe>
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer" onclick="openYandexMap('г.Гродно, ул.Аульская,17', '23.954673,53.673679')">
                                 <span class="bg-white text-granite-800 font-bold py-2 px-4 rounded-lg">Карта проезда</span>
                             </div>
                         </div>
@@ -295,7 +295,7 @@
                         100granit.by — гранитная оптовая компания полного цикла. С 1987 года наш коллектив производит и поставляет памятники и другую гранитную продукцию оптом. Надежный поставщик гранита для Вашего бизнеса в Республике Беларусь. Выбирайте продукцию из наличия на складах или закажите изготовление на нашем камнеобрабатывающем заводе.
                     </p>
                     <p class="text-gray-700 mb-4">
-                       В нашем каталоге пород - 7 видов гранита из Карелии и Мурманской области, которые мы получаем и реализуем на партнерских условиях, как Официальный Представитель Производителя. Чёрные, коричневые, красные, розовые, зеленые и мультиколор породы в наличии
+                       В нашем каталоге пород - 7 видов гранита из Карелии и Мурманской области, которые мы получаем и реализуем на партнерских условиях, как Официальный Представитель Производителя. Чёрные, коричневые, красные, розовые, зеленые и мультиколор породы в наличии.
                     </p>
                     <p class="text-gray-700 mb-6">
                        Лицензированный поставщик сырья и продукции, собственные склады гранита в регионах Республики Беларусь с отгрузкой без ожидания, высокое качество продукции, двухступенчатая система проверки, гарантии. Вся продукция ввезена в РБ с уплатой всех налогов и пошлин, предоставляется полный набор необходимых документов, свидетельства и сертификаты.
@@ -901,9 +901,15 @@
         // Initialize first tab as active
         document.querySelector('.warehouse-tab.active').click();
 
-        // Function to open map in new tab
-        function openMap(url) {
-            window.open(url, '_blank');
+        // Function to open Yandex Map in new tab with coordinates and address
+        function openYandexMap(address, coordinates) {
+            let yandexMapUrl;
+            if (coordinates) {
+                yandexMapUrl = `https://yandex.by/maps/?ll=${coordinates}&z=16&pt=${coordinates}%2Cpmrdm&text=${encodeURIComponent(address)}`;
+            } else {
+                yandexMapUrl = `https://yandex.by/maps/?text=${encodeURIComponent(address)}`;
+            }
+            window.open(yandexMapUrl, '_blank');
         }
 
         // Quarry Tabs
