@@ -102,224 +102,181 @@
 <body class="text-gray-800">
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex flex-col items-center">
-            <div class="mb-4">
-                <h1 class="text-2xl font-bold text-gray-900">100Granit.by</h1>
+        <div class="container mx-auto px-4 py-4">
+            <!-- Logo and Description -->
+            <div class="flex flex-col items-center mb-4">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-1">100Granit.by</h1>
+                <p class="text-lg font-bold text-gray-900">Центр комплектации гранитных мастерских и бригад по благоустройству</p>
             </div>
-            
-            <nav class="w-full md:w-auto">
-                <ul class="flex flex-wrap justify-center space-x-1 md:space-x-4">
-                    <li><a href="#about" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">О компании</a></li>
-                    <li><a href="#mining" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">Добыча</a></li>
-                    <li><a href="#production" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">Производство</a></li>
-                    <li><a href="#warehouses" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">Склады</a></li>
-                    <li><a href="#contacts" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">Контакты</a></li>
-                    <li><a href="#faq" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium">Вопрос/Ответ</a></li>
+
+            <!-- Navigation Menu -->
+            <nav class="border-t border-gray-200 pt-4">
+                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8">
+                    <li><a href="#about" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">О Компании</a></li>
+                    <li><a href="#warehouses" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">Склады</a></li>
+                    <li><a href="#mining" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">Месторождения камня</a></li>
+                    <li><a href="#" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">Лицензии</a></li>
+                    <li><a href="#faq" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">Помощь</a></li>
+                    <li><a href="#contacts" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">Контакты</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-bg text-white py-20 md:py-32">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Ваш надежный поставщик гранита по всей Беларуси</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Высокое качество, справедливая цена, оперативная поставка и готовность к долгосрочному сотрудничеству</p>
-            <a href="#contacts" class="bg-granite-600 hover:bg-granite-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">
-                Связаться с нами
-            </a>
-        </div>
-    </section>
+    <style>
+        .nav-link.active {
+            color: #8a9c8b;
+            font-weight: 600;
+            border-bottom: 2px solid #8a9c8b;
+        }
+    </style>
+
+    <script>
+        // Highlight active nav link on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                const fromTop = window.scrollY + 100;
+                
+                navLinks.forEach(link => {
+                    const section = document.querySelector(link.getAttribute('href'));
+                    if (
+                        section.offsetTop <= fromTop &&
+                        section.offsetTop + section.offsetHeight > fromTop
+                    ) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+   
+   
+   
+
+
 
     <!-- Warehouses Section -->
     <section id="warehouses" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Наши склады</h2>
-                <div class="w-20 h-1 bg-granite-600 mx-auto mb-6"></div>
-                
-                <!-- Warehouse Tabs -->
-                <div class="flex justify-center space-x-4 mb-8">
-                    <a href="#" class="warehouse-tab px-6 py-3 bg-granite-600 text-white rounded-lg font-medium transition duration-300 hover:bg-granite-700 active" data-warehouse="minsk">
-                        Минск
-                    </a>
-                    <a href="#" class="warehouse-tab px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-medium transition duration-300 hover:bg-gray-300" data-warehouse="grodno">
-                        Гродно
-                    </a>
-                </div>
-                
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Склады</h2>
+            
+            <!-- Warehouse Tabs -->
+            <div class="flex justify-center gap-4 mb-8">
+                <button class="warehouse-tab bg-granite-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 active" data-warehouse="minsk">
+                    Минск
+                </button>
+                <button class="warehouse-tab bg-gray-200 text-gray-700 font-bold py-3 px-8 rounded-lg text-lg transition duration-300" data-warehouse="grodno">
+                    Гродно
+                </button>
             </div>
             
             <!-- Warehouse Content -->
-            <div class="max-w-6xl mx-auto">
+            <div class="warehouse-content-container">
                 <!-- Minsk Warehouse -->
                 <div id="warehouse-minsk" class="warehouse-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.570210684896!2d27.46280831586425!3d53.84433597985431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e08224e5b8b737%3A0x7e0f7b0e5b8b7b0!2z0J7QutCw0Y8g0L_QvtC20LjRgtC-0LHQsA!5e0!3m2!1sru!2sby!4v1695000000000!5m2!1sru!2sby" 
-                            width="100%" 
-                            height="400" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy">
-                        </iframe>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-granite-600">
+                        <h3 class="text-2xl font-bold mb-4">Склад МИНСК</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-granite-600 mt-1 mr-3"></i>
+                                <p>ООО «ГранитДеМаш»<br>г.Минск, Пр.Партизанский,168/18</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone text-granite-600 mt-1 mr-3"></i>
+                                <p>+375 44 579 95 79 (Евгений)</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-file-alt text-granite-600 mt-1 mr-3"></i>
+                                <a  href="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/price/%D0%9C%D0%B8%D0%BD%D1%81%D0%BA%20%D0%9F1.pdf" target="_blank" class="text-granite-600 hover:text-granite-800 font-medium"href="#" class="text-granite-600 hover:text-granite-800 font-medium">Прайс лист склад Минск</a>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="location-card border-l-4 border-granite-500 bg-gray-50 p-6 rounded-r-lg shadow-sm">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Склад в Минске</h3>
-                            <div class="space-y-4">
-                                <div>
-                                    <p class="font-semibold text-gray-700">Адрес:</p>
-                                    <p class="text-gray-600">ООО «ГранитДеМаш»<br>г. Минск, Пр. Партизанский, 168/18</p>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-700">Ответственный:</p>
-                                    <p class="text-gray-600">Евгений</p>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-700">Телефон:</p>
-                                    <p class="text-gray-600">+375 44 579 95 79</p>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-700">Часы работы:</p>
-                                    <p class="text-gray-600">Пн-Пт: 8:00 - 18:00<br>Сб: 9:00 - 15:00<br>Вс: выходной</p>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-700">Наши цены:</p>
-                                    <p class="text-gray-600">
-                                        <a href="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/price/%D0%9C%D0%B8%D0%BD%D1%81%D0%BA%20%D0%9F1.pdf" target="_blank" class="text-granite-600 hover:text-granite-800 underline">
-                                            Цена реализации
-                                        </a>
-                                    </p>
-                                </div>
+                    <div class="bg-gray-100 rounded-xl h-full">
+                        <div class="relative h-full">
+                            <iframe src="https://yandex.by/map-widget/v1/?ll=27.612070%2C53.889057&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NzYyMzQ5MxJb0KDQvtGB0YHQuNGPLCDQnNC40L3RgdC60LDRjyDQmtC40ZfQstGB0LrQuNC5INCk0YDQsNC90YbQuNGPLCDQn9GA0LjRhtCw0L3QsCDQn9Cw0YDQuNGC0L3QsNGB0YHQutC40Lkg0YLRg9C70YzRhtCwLCAxNjgvMTgiCg3Z5hVCFd4VX0I%2C&z=16.8" width="100%" height="100%" frameborder="0" allowfullscreen="true"></iframe>
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                <span class="bg-white text-granite-800 font-bold py-2 px-4 rounded-lg">Карта проезда</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Grodno Warehouse -->
-                <div id="warehouse-grodno" class="warehouse-content grid grid-cols-1 md:grid-cols-2 gap-8 hidden">
-                    <div>
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.570210684896!2d27.46280831586425!3d53.84433597985431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e08224e5b8b737%3A0x7e0f7b0e5b8b7b0!2z0J7QutCw0Y8g0L_QvtC20LjRgtC-0LHQsA!5e0!3m2!1sru!2sby!4v1695000000000!5m2!1sru!2sby" 
-                            width="100%" 
-                            height="400" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy">
-                        </iframe>
+                <!-- Grodno Warehouse (hidden by default) -->
+                <div id="warehouse-grodno" class="warehouse-content hidden grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4">Склад ГРОДНО</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-granite-600 mt-1 mr-3"></i>
+                                <p>ООО «ПрофиЦвет»<br>г.Гродно, ул.Аульская,17</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone text-granite-600 mt-1 mr-3"></i>
+                                <p>+375 29 160 93 58 (Андрей)</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-file-alt text-granite-600 mt-1 mr-3"></i>
+                                <a href="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/price/%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%BE%20%D0%9F1.pdf" target="_blank" class="text-granite-600 hover:text-granite-800 font-medium">Прайс лист склад Гродно</a>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="location-card border-l-4 border-granite-500 bg-gray-50 p-6 rounded-r-lg shadow-sm">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Склад в Гродно</h3>
-                            <div class="space-y-4">
-                                <div>
-                                    <p class="font-semibold text-gray-700">Адрес:</p>
-                                    <p class="text-gray-600">ООО "ПрофиЦвет"<br>г. Гродно, ул. Аульская, 17</p>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-700">Ответственный:</p>
-                                    <p class="text-gray-600">Андрей</p>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-700">Телефон:</p>
-                                    <p class="text-gray-600">+375 29 160 93 58</p>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-700">Часы работы:</p>
-                                    <p class="text-gray-600">Пн-Пт: 8:00 - 18:00<br>Сб: 9:00 - 15:00<br>Вс: выходной</p>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-700">Наши цены:</p>
-                                    <p class="text-gray-600">
-                                        <a href="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/price/%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%BE%20%D0%9F1.pdf" target="_blank" class="text-granite-600 hover:text-granite-800 underline">
-                                            Цена реализации
-                                        </a>
-                                    </p>
-                                </div>
+                    <div class="bg-gray-100 rounded-xl h-full">
+                        <div class="relative h-full">
+                            <iframe src="https://yandex.by/map-widget/v1/?ll=23.809224%2C53.703092&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NzYyMzQ5NBJN0KDQvtGB0YHQuNGPLCDQnNC40L3RgdC60LDRjyDQmtC40ZfQstGB0LrQuNC5INCk0YDQsNC90YbQuNGPLCDQkNC90LTRgNC40Lkg0J_QvtC70YzRhtCwLCAxNyIKDdDmFUIW3hVfQg%2C&z=16.8" width="100%" height="100%" frameborder="0" allowfullscreen="true"></iframe>
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                <span class="bg-white text-granite-800 font-bold py-2 px-4 rounded-lg">Карта проезда</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
+            </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
+    <!-- Info Blocks Section -->
     <section class="py-16 bg-granite-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Преимущества работы с нами</h2>
-                <div class="w-20 h-1 bg-granite-600 mx-auto"></div>
+        
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="w-16 h-16 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-truck text-granite-600 text-2xl"></i>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- CTA Buttons -->
+                <div class="lg:col-span-2 flex flex-col md:flex-row justify-center gap-6 mb-8">
+                    <a href="#contacts" class="bg-granite-600 hover:bg-granite-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 text-center">
+                        Запросить прайс
+                    </a>
+                    <a href="#contacts" class="bg-white hover:bg-gray-100 text-granite-800 border-2 border-granite-600 font-bold py-3 px-8 rounded-full text-lg transition duration-300 text-center">
+                        Обсудить партнерство
+                    </a>
+                </div>
+                <div class="bg-white p-10 rounded-xl shadow-lg">
+                    <div class="flex flex-col">
+                        <div class="w-full">
+                            
+                            <p class="text-gray-600 text-md leading-relaxed">
+                                Редкие размеры в наличии! Мы не берем предоплату и не везем заказ месяц и более. Вся продукция – В НАЛИЧИИ на складе в Вашем городе и готова к отгрузке. Приезжай, смотри и забирай сразу / закажи доставку! Продукция ввезена в РБ с уплатой всех налогов и пошлин Официальным Представителем Производителя. Предоставляются все необходимые документы, свидетельства и сертификаты.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Прямые поставки</h3>
-                    <p class="text-gray-600">От производителя без предоплаты и посредников</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="w-16 h-16 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-tag text-granite-600 text-2xl"></i>
+                <div class="bg-white p-10 rounded-xl shadow-lg">
+                    <div class="flex flex-col">
+                        <div class="w-full">
+                            
+                            <p class="text-gray-600 text-md leading-relaxed">
+                                Принимаются заявки на открытие региональных складов с готовой продукцией на площадях компаний-обработчиков камня и гранитных мастерских. Без выкупа складского запаса и предоплат! Выплачивается комиссионное вознаграждение от продаж! Стань Эксклюзивным и Единственным представителем в своем городе!
+                            </p>
+                            <p class="text-gray-600 text-md leading-relaxed mt-4">
+                                Позвоните по телефону <a href="tel:+375296416641" class="text-granite-600 hover:text-granite-800 font-medium">+375 29 641 66 41</a> и мы обсудим с вами возможности сотрудничества.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Честная цена</h3>
-                    <p class="text-gray-600">Прозрачные условия, отсутствие скрытых комиссий</p>
                 </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="w-16 h-16 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-handshake text-granite-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Долгосрочное сотрудничество</h3>
-                    <p class="text-gray-600">Готовы к взаимовыгодному партнерству</p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="w-16 h-16 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-file-contract text-granite-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Полный комплект документов</h3>
-                    <p class="text-gray-600">Сертификаты и свидетельства на каждую партию продукции</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partnership Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Варианты регионального партнёрства</h2>
-                <div class="w-20 h-1 bg-granite-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="border border-granite-200 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
-                    <div class="w-20 h-20 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-warehouse text-granite-600 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Открытие склада</h3>
-                    <p class="text-gray-600 mb-4">Без выкупа запаса и предоплат. Мы предоставляем продукцию под реализацию.</p>
-                </div>
-                
-                <div class="border border-granite-200 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
-                    <div class="w-20 h-20 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-percentage text-granite-600 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Выгодное комиссионное вознаграждение</h3>
-                    <p class="text-gray-600 mb-4">Гибкие условия и высокие проценты за продажи.</p>
-                </div>
-                
-                <div class="border border-granite-200 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
-                    <div class="w-20 h-20 bg-granite-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-medal text-granite-600 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Эксклюзивное представительство</h3>
-                    <p class="text-gray-600 mb-4">Возможность стать единственным представителем в вашем регионе.</p>
                 </div>
             </div>
         </div>
@@ -335,192 +292,20 @@
                 <div class="md:w-1/2">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">О компании</h2>
                     <p class="text-gray-700 mb-4">
-                        100Granit.by - крупный поставщик гранита в Республику Беларусь, специализирующийся на прямых поставках высококачественного камня из Карелии и Мурманской области.
+                        100granit.by — гранитная оптовая компания полного цикла. С 1987 года наш коллектив производит и поставляет памятники и другую гранитную продукцию оптом. Надежный поставщик гранита для Вашего бизнеса в Республике Беларусь. Выбирайте продукцию из наличия на складах или закажите изготовление на нашем камнеобрабатывающем заводе.
                     </p>
                     <p class="text-gray-700 mb-4">
-                        Поставляем гранит с 1987 года. В нашем каталоге пород - 7 видов гранита, которые мы получаем и реализуем на партнерских условиях, как официальный представитель производителя.
+                       В нашем каталоге пород - 7 видов гранита из Карелии и Мурманской области, которые мы получаем и реализуем на партнерских условиях, как Официальный Представитель Производителя. Чёрные, коричневые, красные, розовые, зеленые и мультиколор породы в наличии
                     </p>
                     <p class="text-gray-700 mb-6">
-                        Лицензированный поставщик сырья и продукции, собственные склады гранита в регионах Республики Беларусь с отгрузкой без ожидания, высокое качество продукции, двухступенчатая система проверки, гарантии. Вся продукция ввезена в РБ с уплатой всех налогов и пошлин, предоставляется полный набор необходимых документов, свидетельства и сертификаты.
+                       Лицензированный поставщик сырья и продукции, собственные склады гранита в регионах Республики Беларусь с отгрузкой без ожидания, высокое качество продукции, двухступенчатая система проверки, гарантии. Вся продукция ввезена в РБ с уплатой всех налогов и пошлин, предоставляется полный набор необходимых документов, свидетельства и сертификаты.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#production" class="bg-granite-600 hover:bg-granite-700 text-white font-medium py-2 px-6 rounded-full transition duration-300">
-                            Наша продукция
-                        </a>
-                   
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="production" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Наша продукция</h2>
-                <div class="w-20 h-1 bg-granite-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Product 1 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Гранитные блоки</h3>
-                        <p class="text-gray-600 mb-4">Массивные заготовки из природного камня,  для дальнейшей обработки и производства различных строительных материалов</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Толщина от 20 до 100 мм</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Полированная и термообработанная поверхность</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Широкий выбор уникальных природных фактур, рисунков и цветов гранита </span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Идеально для столешниц, фасадов и элементов ландшафтного дизайна</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Гранитные слэбы</h3>
-                        <p class="text-gray-600 mb-4">Полированные плиты из натурального гранита для столешниц, подоконников и облицовки</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Толщина от 20 до 100 мм</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Полированная и термообработанная поверхность</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Широкий выбор фактур</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Идеально для столешниц и облицовки</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Гранитная брусчатка</h3>
-                        <p class="text-gray-600 mb-4">Прочное и долговечное покрытие для мощения дорожек, площадей и тротуаров</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Размеры от 50×50 до 100×100 мм</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Колотая и пиленая поверхность</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Морозостойкость F300</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Для мощения дорожек и площадей</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Гранитные плиты</h3>
-                        <p class="text-gray-600 mb-4">Облицовочные плиты для фасадов, полов и интерьеров с различной обработкой поверхности</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Толщина от 10 до 30 мм</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Различные форматы и обработка</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Для фасадов и интерьеров</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Долговечность более 100 лет</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Product 5 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Мемориальные изделия</h3>
-                        <p class="text-gray-600 mb-4">Памятники, надгробия и другие изделия из гранита с индивидуальным дизайном</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Памятники и надгробия</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Цветники и стелы</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Индивидуальный дизайн</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Гарантия на обработку 25 лет</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Product 6 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Строительная продукция</h3>
-                        <p class="text-gray-600 mb-4">Фундаментные блоки, архитектурные элементы и другие строительные материалы из гранита</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Фундаментные блоки</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Облицовочные материалы</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Архитектурные элементы</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-granite-600 mt-1 mr-2"></i>
-                                <span>Ландшафтные конструкции</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <!-- Mining Section -->
     <section id="mining" class="mining-bg text-white py-16">
@@ -802,6 +587,81 @@
         </div>
     </section>
 
+  
+
+    <!-- Warranty Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Гарантийная политика</h2>
+                <div class="w-20 h-1 bg-granite-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-gray-700 text-lg">
+                    Предоставляем полную гарантию на поставляемые изделия из камня, согласно законодательства Республики Беларусь. 
+                    Все изделия находятся на складах в Республике Беларусь, готовы к предварительному осмотру покупателями перед отгрузкой.
+                </p>
+            </div>
+        </div>
+    </section>
+
+  
+    <!-- Licenses Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Лицензии</h2>
+                <div class="w-20 h-1 bg-granite-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- License Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-granite-600">
+                    <h3 class="text-xl font-bold text-granite-800 mb-3">Лицензия №51130</h3>
+                    <p class="text-gray-700 mb-2"><span class="font-medium">Назначение:</span> Добыча облицовочного камня на месторождении «Винга»</p>
+                    <p class="text-gray-700"><span class="font-medium">Срок окончания:</span> 31.04.2034</p>
+                </div>
+                
+
+                <!-- License Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-granite-600">
+                    <h3 class="text-xl font-bold text-granite-800 mb-3">Лицензия №80698</h3>
+                    <p class="text-gray-700 mb-2"><span class="font-medium">Назначение:</span> Геологическое изучение и добыча блочного камня на участке недр «Чарнокитовый»</p>
+                    <p class="text-gray-700"><span class="font-medium">Срок окончания:</span> 30.12.2034</p>
+                </div>
+                
+                <!-- License Card 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-granite-600">
+                    <h3 class="text-xl font-bold text-granite-800 mb-3">Лицензия №80006</h3>
+                    <p class="text-gray-700 mb-2"><span class="font-medium">Назначение:</span> Добыча габбро-диабазов на месторождении «Другорецкое-2» с целью производства блоков</p>
+                    <p class="text-gray-700"><span class="font-medium">Срок окончания:</span> 30.08.2032</p>
+                </div>
+                
+                <!-- License Card 5 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-granite-600">
+                    <h3 class="text-xl font-bold text-granite-800 mb-3">Лицензия №80699</h3>
+                    <p class="text-gray-700 mb-2"><span class="font-medium">Назначение:</span> Геологическое изучение и добыча блочного камня на участке недр «Дядина Гора»</p>
+                    <p class="text-gray-700"><span class="font-medium">Срок окончания:</span> 30.12.2034</p>
+                </div>
+                
+                <!-- License Card 6 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-granite-600">
+                    <h3 class="text-xl font-bold text-granite-800 mb-3">Лицензия №80753</h3>
+                    <p class="text-gray-700 mb-2"><span class="font-medium">Назначение:</span> Разведка и добыча строительного камня на месторождении «Хауки-7» с целью производства блоков</p>
+                    <p class="text-gray-700"><span class="font-medium">Срок окончания:</span> 30.11.2046</p>
+                </div>
+                
+                <!-- License Card 7 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-granite-600">
+                    <h3 class="text-xl font-bold text-granite-800 mb-3">Лицензия №00915</h3>
+                    <p class="text-gray-700 mb-2"><span class="font-medium">Назначение:</span> Разведка и добыча полезных ископаемых</p>
+                    <p class="text-gray-700"><span class="font-medium">Срок окончания:</span> 16.12.2036</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
     <section id="faq" class="py-16 bg-granite-50">
         <div class="container mx-auto px-4">
@@ -811,79 +671,90 @@
             </div>
             
             <div class="max-w-3xl mx-auto">
-                <div class="faq-item bg-white rounded-lg shadow-sm mb-4">
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
                     <div class="p-6 cursor-pointer flex justify-between items-center">
-                        <h3 class="text-lg font-bold text-gray-900">Какие документы вы предоставляете?</h3>
+                        <h3 class="text-lg font-semibold">Как оформить заказ?</h3>
                         <i class="fas fa-chevron-down text-granite-600"></i>
                     </div>
-                    <div class="faq-content px-6 pb-6 text-gray-600">
-                        <p>С каждой партией продукции мы предоставляем полный комплект документов, включая:</p>
-                        <ul class="list-disc pl-5 mt-2 space-y-1">
-                            <li>Кассовый чек</li>
-                            <li>Сертификат качества на продукцию</li>
-                        </ul>
+                    <div class="faq-content px-6 pb-6">
+                        <p class="text-gray-600">Если Вы уже выбрали изделие из наличия на одном из наших складов, то для заказа Вы можете позвонить по указанному телефону склада, приехать непосредственно на склад, либо заполнить форму обратной связи, которая размещена в разделе "Контакты".</p>
                     </div>
                 </div>
                 
-                <div class="faq-item bg-white rounded-lg shadow-sm mb-4">
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
                     <div class="p-6 cursor-pointer flex justify-between items-center">
-                        <h3 class="text-lg font-bold text-gray-900">Какие сроки поставки?</h3>
+                        <h3 class="text-lg font-semibold">У вас на сайте реальные цены?</h3>
                         <i class="fas fa-chevron-down text-granite-600"></i>
                     </div>
-                    <div class="faq-content px-6 pb-6 text-gray-600">
-                        <p>Сроки поставки зависят от наличия продукции на складах:</p>
-                        <ul class="list-disc pl-5 mt-2 space-y-1">
-                            <li>При наличии на складе в Беларуси - от 1 до 3 рабочих дней</li>
-                            <li>При поставке из Карелии - от 7 до 14 рабочих дней</li>
-                            <li>Для индивидуальных заказов - сроки согласовываются отдельно</li>
-                        </ul>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">Все цены, которые Вы можете видеть на нашем сайте, являются актуальными на сегодняшний день и фиксируются в договоре.</p>
                     </div>
                 </div>
                 
-                <div class="faq-item bg-white rounded-lg shadow-sm mb-4">
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
                     <div class="p-6 cursor-pointer flex justify-between items-center">
-                        <h3 class="text-lg font-bold text-gray-900">Какие есть способы оплаты?</h3>
+                        <h3 class="text-lg font-semibold">Производите ли вы установку памятников?</h3>
                         <i class="fas fa-chevron-down text-granite-600"></i>
                     </div>
-                    <div class="faq-content px-6 pb-6 text-gray-600">
-                        <p>Мы предлагаем несколько удобных способов оплаты:</p>
-                        <ul class="list-disc pl-5 mt-2 space-y-1">
-                            <li>Безналичный расчет для юридических лиц</li>
-                            <li>Оплата банковской картой</li>
-                            <li>Наличный расчет (в кассе компании)</li>
-                            <li>Возможна оплата по факту поставки</li>
-                        </ul>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">Нет, мы оптовая компания и предоставляем продукцию из камня по оптовым ценам. Вы можете заказать дальнейшую обработку камня и установку непосредственно у нашего Партнера-оператора складов.</p>
                     </div>
                 </div>
                 
-                <div class="faq-item bg-white rounded-lg shadow-sm mb-4">
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
                     <div class="p-6 cursor-pointer flex justify-between items-center">
-                        <h3 class="text-lg font-bold text-gray-900">Работаете ли вы с физическими лицами?</h3>
+                        <h3 class="text-lg font-semibold">Какой срок изготовления памятников?</h3>
                         <i class="fas fa-chevron-down text-granite-600"></i>
                     </div>
-                    <div class="faq-content px-6 pb-6 text-gray-600">
-                        <p>Нет, мы оптовая компания и предоставляем продукцию из камня по оптовым ценам. Вы можете заказать дальнейшую обработку камня и установку непосредственно у нашего Партнера-оператора складов.</p>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">Вся продукция уже находится в наличии на складе и готова к отгрузке в Вашем городе. Если же Вам необходима продукция из нашего расширенного каталога, то после оформления заявки на поставку, она будет поставлена в максимально короткие сроки с нашего центрального склада в Петрозаводске, Республика Карелия.</p>
                     </div>
                 </div>
                 
-                <div class="faq-item bg-white rounded-lg shadow-sm">
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
                     <div class="p-6 cursor-pointer flex justify-between items-center">
-                        <h3 class="text-lg font-bold text-gray-900">Как стать вашим региональным представителем?</h3>
+                        <h3 class="text-lg font-semibold">Можно ли на личном автотранспорте перевезти заказ с Вашего склада?</h3>
                         <i class="fas fa-chevron-down text-granite-600"></i>
                     </div>
-                    <div class="faq-content px-6 pb-6 text-gray-600">
-                        <p>Чтобы стать нашим региональным представителем, необходимо:</p>
-                        <ul class="list-disc pl-5 mt-2 space-y-1">
-                            <li>Располагать складскими помещениями (или возможностью их аренды)</li>
-                            <li>Иметь клиентскую базу или возможности для ее развития</li>
-                            <li>Заполнить анкету на нашем сайте или связаться с отделом партнерства</li>
-                        </ul>
-                        <p class="mt-3">Мы предлагаем выгодные условия сотрудничества и поддержку на всех этапах.</p>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">Да, можно. Тут всё зависит от размера изделия и грузоподъёмности Вашего личного автотранспорта. Сама погрузка - осуществляется бесплатно.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <div class="p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Как происходит оплата?</h3>
+                        <i class="fas fa-chevron-down text-granite-600"></i>
+                    </div>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">Оплата производится по факту получения Вами заказа.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <div class="p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Возможна ли доставка?</h3>
+                        <i class="fas fa-chevron-down text-granite-600"></i>
+                    </div>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">Да, возможна. Уточняйте стоимость у нашего Партнера-оператора складов.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <div class="p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Какие документы выдаются при покупке?</h3>
+                        <i class="fas fa-chevron-down text-granite-600"></i>
+                    </div>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">При получении заказа клиенту выдаются следующие документы: Кассовый чек, Сертификат качества на продукцию.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
 
     <!-- Contact Section -->
     <section id="contacts" class="py-16 bg-white">
@@ -929,20 +800,6 @@
                         </div>
                     </div>
                     
-                    <div class="mt-10">
-                        <h4 class="font-bold text-gray-900 mb-4">Мессенджеры для связи</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-10 h-10 bg-granite-100 rounded-full flex items-center justify-center hover:bg-granite-600 hover:text-white transition duration-300">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-granite-100 rounded-full flex items-center justify-center hover:bg-granite-600 hover:text-white transition duration-300">
-                                <i class="fab fa-viber"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-granite-100 rounded-full flex items-center justify-center hover:bg-granite-600 hover:text-white transition duration-300">
-                                <i class="fab fa-telegram"></i>
-                            </a>
-                        </div>
-                    </div>
                 </div>
                 
                 <div>
@@ -976,23 +833,20 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Навигация</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">О компании</a></li>
-                        <li><a href="#mining" class="text-gray-400 hover:text-white transition duration-300">Добыча</a></li>
-                        <li><a href="#production" class="text-gray-400 hover:text-white transition duration-300">Производство</a></li>
-                        <li><a href="#warehouses" class="text-gray-400 hover:text-white transition duration-300">Склады</a></li>
-                        <li><a href="#contacts" class="text-gray-400 hover:text-white transition duration-300">Контакты</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Реквизиты</h4>
+                    <h4 class="text-lg font-bold mb-4">Реквизиты компании</h4>
                     <ul class="space-y-2 text-gray-400">
                         <li>ЧТУП «Желатофуд»</li>
                         <li>Юр. адрес: 212030 Могилёв, пер.Гаражный, д.4 офис 10</li>
                         <li>Факт. адрес: 212012 Могилёв, пер.Гаражный,17</li>
                         <li>УНП 790761093</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Контакты наших складов</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>г. Минск, телефон <a href="tel:+375445799579" class="hover:text-white transition duration-300">+375 44 579 95 79</a></li>
+                        <li>г. Гродно, телефон <a href="tel:+375291609358" class="hover:text-white transition duration-300">+375 29 160 93 58</a></li>
                     </ul>
                 </div>
                 
@@ -1012,7 +866,7 @@
                 
                 <div>
                     <h3 class="text-xl font-bold mb-4">100Granit.by</h3>
-                    <p class="text-gray-400 mb-6">Крупный поставщик гранита в Республике Беларусь</p>
+                    <p class="text-gray-400 mb-6">Центр комплектации гранитных мастерских и бригад по благоустройству</p>
                     <p>© 2025 Все права защищены</p>
                 </div>
             
@@ -1047,6 +901,11 @@
         // Initialize first tab as active
         document.querySelector('.warehouse-tab.active').click();
 
+        // Function to open map in new tab
+        function openMap(url) {
+            window.open(url, '_blank');
+        }
+
         // Quarry Tabs
         document.querySelectorAll('.quarry-tab').forEach(tab => {
             tab.addEventListener('click', function(e) {
@@ -1076,20 +935,38 @@
         // FAQ Accordion
         document.querySelectorAll('.faq-item').forEach(item => {
             const header = item.querySelector('.p-6');
+            const content = item.querySelector('.faq-content');
+            const icon = header.querySelector('i');
+            
             header.addEventListener('click', () => {
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-content').classList.add('hidden');
+                        otherItem.querySelector('i').classList.remove('fa-chevron-up');
+                        otherItem.querySelector('i').classList.add('fa-chevron-down');
+                    }
+                });
+
+                // Toggle current item
                 item.classList.toggle('active');
-                const icon = header.querySelector('i');
                 if (item.classList.contains('active')) {
+                    content.classList.remove('hidden');
                     icon.classList.remove('fa-chevron-down');
                     icon.classList.add('fa-chevron-up');
                 } else {
+                    content.classList.add('hidden');
                     icon.classList.remove('fa-chevron-up');
                     icon.classList.add('fa-chevron-down');
                 }
             });
         });
+
+        // Initialize first FAQ item as open
+        document.querySelector('.faq-item.active .faq-content').classList.remove('hidden');
         
-        // Enhanced smooth scrolling for all sections
+        // Smooth scrolling for all sections
         document.querySelectorAll('section[id]').forEach(section => {
             section.style.cursor = 'pointer';
             section.addEventListener('click', function() {
@@ -1097,6 +974,35 @@
                     top: section.offsetTop - 80,
                     behavior: 'smooth'
                 });
+            });
+        });
+
+        // Media Viewer
+        document.querySelectorAll('.media-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const mediaType = this.textContent.trim();
+                alert(`Открыть ${mediaType}`);
+                // Here you would implement actual media viewer functionality
+                // For example: show modal with corresponding image/video
+            });
+        });
+
+        // License Viewer
+        document.querySelectorAll('.license-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Открыть лицензию');
+                // Here you would implement actual license viewer functionality
+            });
+        });
+
+        // Certificate Viewer
+        document.querySelectorAll('.certificate-icon').forEach(icon => {
+            icon.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Открыть сертификат');
+                // Here you would implement actual certificate viewer functionality
             });
         });
 
@@ -1115,3 +1021,5 @@
         });
         
     </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=MYname82/myname82-100granit" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
