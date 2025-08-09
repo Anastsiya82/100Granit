@@ -101,23 +101,30 @@
 </head>
 <body class="text-gray-800">
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-6">
-            <!-- Logo and Description -->
-            <div class="flex flex-col items-center mb-4">
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-1">100Granit.by</h1>
-                <p class="text-xl md:text-2xl font-bold text-gray-900">Центр комплектации гранитных мастерских и бригад по благоустройству</p>
+    <header class="bg-white/90 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 relative">
+            <!-- Brand + Burger -->
+            <div class="flex items-start md:items-center justify-between gap-4">
+                <div class="flex flex-col text-center md:text-left">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-gray-900 tracking-tight">100Granit.by</h1>
+                    <p class="mt-1 text-sm sm:text-base md:text-lg font-medium text-gray-600 md:text-gray-700">Центр комплектации гранитных мастерских и бригад по благоустройству</p>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gray-300 bg-white/70 backdrop-blur text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-granite-500" aria-controls="mobile-menu" aria-expanded="false" aria-label="Открыть меню">
+                    <i class="fas fa-bars text-xl" id="mobile-menu-icon"></i>
+                </button>
             </div>
 
             <!-- Navigation Menu -->
-            <nav class="border-t border-gray-200 pt-4">
-                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8">
-                    <li><a href="#about" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">О Компании</a></li>
-                    <li><a href="#warehouses" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">Склады</a></li>
-                    <li><a href="#mining" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">Месторождения камня</a></li>
-                    <li><a href="#licenses" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">Лицензии</a></li>
-                    <li><a href="#faq" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">Вопрос/Ответ</a></li>
-                    <li><a href="#contacts" class="px-3 py-2 text-gray-700 hover:text-granite-700 font-medium nav-link">Контакты</a></li>
+            <nav id="mobile-menu" class="hidden md:block absolute left-4 right-4 mt-3 rounded-xl border border-gray-200 bg-white shadow-xl p-3 md:static md:mt-4 md:rounded-none md:border-t md:border-x-0 md:border-b md:shadow-none md:p-0">
+                <ul class="flex flex-col gap-1 md:flex-row md:justify-center md:gap-8">
+                    <li><a href="#about" class="block w-full rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 hover:text-granite-700 font-medium nav-link">О Компании</a></li>
+                    <li><a href="#warehouses" class="block w-full rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 hover:text-granite-700 font-medium nav-link">Склады</a></li>
+                    <li><a href="#mining" class="block w-full rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 hover:text-granite-700 font-medium nav-link">Месторождения камня</a></li>
+                    <li><a href="#licenses" class="block w-full rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 hover:text-granite-700 font-medium nav-link">Лицензии</a></li>
+                    <li><a href="#faq" class="block w-full rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 hover:text-granite-700 font-medium nav-link">Вопрос/Ответ</a></li>
+                    <li><a href="#contacts" class="block w-full rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 hover:text-granite-700 font-medium nav-link">Контакты</a></li>
                 </ul>
             </nav>
         </div>
@@ -195,7 +202,7 @@
                             </div>
                             <div class="flex items-start">
                                 <i class="fas fa-file-alt text-granite-600 mt-1 mr-3"></i>
-                                <a href="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/price/%D0%9C%D0%B8%D0%BD%D1%81%D0%BA%20%D0%9F1.pdf#zoom=200" target="_blank" class="text-red-600 hover:text-red-800 font-semibold">Прайс лист склад Минск</a>
+                                <a href="Цены%20(поставка)/Minsk_P1.pdf#zoom=200" target="_blank" class="text-red-600 hover:text-red-800 font-semibold">Прайс лист склад Минск</a>
                             </div>
                         </div>
                     </div>
@@ -224,7 +231,7 @@
                             </div>
                             <div class="flex items-start">
                                 <i class="fas fa-file-alt text-granite-600 mt-1 mr-3"></i>
-                                <a href="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/price/%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%BE%20%D0%9F1.pdf#zoom=200" target="_blank" class="text-red-600 hover:text-red-800 font-semibold">Прайс лист склад Гродно</a>
+                                <a href="Цены%20(поставка)/Grodno_P1.pdf#zoom=200" target="_blank" class="text-red-600 hover:text-red-800 font-semibold">Прайс лист склад Гродно</a>
                             </div>
                         </div>
                     </div>
@@ -755,7 +762,7 @@
                     <ul class="space-y-3">
                         <li class="flex items-start">
                             <i class="fas fa-file-alt text-gray-400 mt-1 mr-3"></i>
-                            <a href="https://huggingface.co/spaces/MYname82/myname82-100granit/resolve/main/Documents/PoliticaPersdannyae.pdf" 
+                            <a href="Документы/PersonalDataPolicy.pdf" 
                                target="_blank" 
                                class="text-gray-400 hover:text-white transition duration-300">
                                 Политика обработки персональных данных
@@ -776,6 +783,7 @@
         document.querySelectorAll('.warehouse-tab').forEach(tab => {
             tab.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation();
                 
                 // Remove active class from all tabs
                 document.querySelectorAll('.warehouse-tab').forEach(t => {
@@ -816,6 +824,7 @@
         document.querySelectorAll('.quarry-tab').forEach(tab => {
             tab.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation();
                 
                 // Remove active class from all tabs
                 document.querySelectorAll('.quarry-tab').forEach(t => {
@@ -872,6 +881,44 @@
         // Main DOMContentLoaded handler
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM is ready, initializing all features...');
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    const isOpen = mobileMenu.classList.contains('hidden') === false;
+                    if (isOpen) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        if (mobileMenuIcon) {
+                            mobileMenuIcon.classList.remove('fa-xmark');
+                            mobileMenuIcon.classList.add('fa-bars');
+                        }
+                    } else {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'true');
+                        if (mobileMenuIcon) {
+                            mobileMenuIcon.classList.remove('fa-bars');
+                            mobileMenuIcon.classList.add('fa-xmark');
+                        }
+                    }
+                });
+
+                // Close menu when a nav link is clicked (mobile only)
+                document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (window.innerWidth < 768) {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenuButton.setAttribute('aria-expanded', 'false');
+                            if (mobileMenuIcon) {
+                                mobileMenuIcon.classList.remove('fa-xmark');
+                                mobileMenuIcon.classList.add('fa-bars');
+                            }
+                        }
+                    });
+                });
+            }
             
             // Initialize navigation highlighting
             initNavHighlight();
@@ -886,16 +933,7 @@
                 }
             }
             
-            // Smooth scrolling for all sections
-            document.querySelectorAll('section[id]').forEach(section => {
-                section.style.cursor = 'pointer';
-                section.addEventListener('click', function() {
-                    window.scrollTo({
-                        top: section.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                });
-            });
+            // Removed click-to-scroll on entire sections to avoid accidental scrolls on mobile
 
             // Media Viewer
             document.querySelectorAll('.media-link').forEach(link => {
@@ -926,14 +964,16 @@
                 });
             });
 
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            // Smooth scrolling for anchor links (exclude tab controls)
+            document.querySelectorAll('a[href^="#"]:not(.quarry-tab):not(.warehouse-tab)').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
+                    const selector = this.getAttribute('href');
+                    const target = selector ? document.querySelector(selector) : null;
                     if (target) {
+                        const targetTop = target.getBoundingClientRect().top + window.pageYOffset - 80;
                         window.scrollTo({
-                            top: target.offsetTop - 80,
+                            top: targetTop >= 0 ? targetTop : 0,
                             behavior: 'smooth'
                         });
                     }
